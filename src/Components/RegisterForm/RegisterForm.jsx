@@ -71,6 +71,9 @@ export default function RegisterForm() {
                  </select>
                 </div>
             </div>
+            <div className='text-center'>
+            <button className='btn submit-btn' type='submit'>تسجيل</button>
+            </div>
         </form>
     </div>
     </>

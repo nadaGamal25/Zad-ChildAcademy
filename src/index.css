@@ -148,4 +148,16 @@ footer .qtouf{
   color: #fff;
 
 }
+.submit-btn{
+  color: #fff !important;
+  background-color: #8e0cc4 !important;
+  transition: all 0.3s;
+  border: solid 0.5px #2c2221 !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+}
+.submit-btn:hover{
+  color: #fff !important;
+  background-color: #6c0e95 !important;
+}
 /* end footer */
