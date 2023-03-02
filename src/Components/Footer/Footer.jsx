@@ -1,14 +1,15 @@
 import React from 'react'
+import imgfooter from '../../assets/zadFooter.png'
 
 export default function Footer() {
   return (
     <>
+    <div className="colors-footer"></div>
     <footer>
-      <div className="colors-footer colors"></div>
-      <div className="container p-4">
+      <div className="overlay-footer w-100"></div>
+      <div className="container footercontain px-4">
         <div className="row">
-        
-        <div className="col-md-6">
+        <div className="col-md-6 footer-info pt-2">
           <div className="zad m-auto">
             <h3>أكاديمية زاد الطفل</h3>
             <h2> 0555555555<i class="fa-solid fa-phone-volume"></i></h2>
@@ -22,8 +23,9 @@ export default function Footer() {
 العسكرية - خلف مطاعم السده</h5>
           </div>
         </div>
-        <div className="col-md-6 text-center text-white">
-          <h2>أكاديمية زاد الطفل</h2>
+        <div className="col-md-6">
+          <img src={imgfooter} className="w-100" alt="img footer" />
+          
         </div>
         </div>
       </div>

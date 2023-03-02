@@ -1,12 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import logo from '../../assets/logo.png'
+
 export default function Navbar() {
   return (
     <>
         <div className="colors"></div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" dir='ltr'>
+    <nav class="navbar navbar-expand-lg navbar" dir='ltr'>
   <div class="container-fluid">
-    <a class="navbar-brand ps-5" href="#"><span className='word1'>اكاديمية</span><br/><span className='word2'>زاد</span><span className='word3'>الطفل</span></a>
+    <Link to='/' class="navbar-brand ps-2 logo" href="#"><img src={logo} alt="logo" /></Link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
