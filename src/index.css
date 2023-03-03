@@ -106,6 +106,9 @@ a , button{
   top: 25%;
   background-color: var(--bink-color);
 }
+nav{
+  box-shadow: 3px  3px 5px #c1c6c2;
+}
 /* end navbar */
 /* start register page */
 .register-container li{
@@ -324,6 +327,119 @@ footer .qtouf{
   background-image: linear-gradient(to right,#9a9a9a 25%,#c1c6c2 25%,#c1c6c2 50%,#9a9a9a 50%,#9a9a9a 75%,#c1c6c2 75%);
 }
 /* end main page */
+/* start child account */
+.hello {
+  border-radius: 10px;
+}
+.hello h2{
+  color: #f3f2f2;
+  font-weight: 500;
+  padding: 25px 10px;
+}
+.hello h2 span{
+  color: #fff;
+  font-style: italic;
+  font-weight: 900;
+}
+.quote{
+  align-items: center;
+  border-radius: 10px;
+}
+.quote h4{
+  color: #fff;
+  padding: 5px 10px;
+}
+.quote img{
+  height: 150px;
+  width: 120;
+}
+.student-data{
+  border: #2c3443 2px solid;
+  border-radius: 10px;
+}
+.student-data h2{
+  color: #212731;
+  font-weight: 900;
+}
+.student-data .data{
+  display: flex;
+  align-items: center;
+  padding: 5px 0px;
+}
+.student-data .data h3{
+  font-weight: 700;
+  color: #2c3544;
+}
+.student-data .data h4{
+  color: var(--text-color);
+  padding-right: 5px;
+}
+/*end child account */
+/* start admin dashboard */
+.admin-heading h1{
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: inline;
+  color: #2c3443;
+}
+.sm-card{
+  padding: 20px 0;
+  border-radius: 10px;
+}
+.sm-card i{
+  color: #fff;
+  font-size: 30px;
+  border-radius: 50%;
+  padding: 15px;
+  margin:20px 0;
+}
+.sm-card h3{
+  font-weight: 600;
+  color: #2c3544;
+}
+.sm-card span{
+  font-weight: 900;
+  font-size: 24px;
+  padding: 10px ;
+  display: block;
+  margin-bottom: 20px;
+}
+.card1{
+  background-color: #dddddd;
+}
+.card1 i{
+  background-color: #8e0cc4;
+}
+.card2{
+  background-color: #ffe3ed;
+}
+.card3{
+  background-color:#ffe8d6 ;
+}
+.card4{
+  background-color: #cceabb;
+}
+.students{
+  background-color: #f7f7f7;
+  border-radius: 10px;
+}
+.students h3{
+  color: var(--light-green);
+  font-weight: 500;
+  position: relative;
+}
+.students h3::after{
+  content: "";
+  background-color: var(--light-green);
+  height: 2px;
+  width: 200px;
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+}
+/* end admin dashboard */
+
 @media only screen and (max-width: 576px){
   .color-box h5{
     font-size: 0.7rem;

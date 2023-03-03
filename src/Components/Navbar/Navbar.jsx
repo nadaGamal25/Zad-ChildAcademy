@@ -24,7 +24,7 @@ export default function Navbar() {
         </li>
         <li class="nav-item bg-orange">
         <i class="fa-solid fa-book-open"></i>
-          <Link class="nav-link" href="#">حساب الطفل</Link>
+          <Link class="nav-link" to="account">حساب الطفل</Link>
         </li>
         <li class="nav-item bg-green">
         <i class="fa-solid fa-file-pen"></i>
