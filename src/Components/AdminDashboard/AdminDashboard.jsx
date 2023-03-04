@@ -38,7 +38,20 @@ export default function AdminDashboard() {
             </div>
             </div> 
         <div className="students p-4">
+          <div className="row g-2">
+            <div className="col-md-6">
             <h3><i class="fa-solid fa-user-graduate ps-2"></i>قائمة الطلاب </h3>
+            </div>
+            <div className="col-md-6">
+              <div class="search-input d-flex align-items-center">
+              <button class="search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <input name="search" id="searchInput" type="search" placeholder="بحث بالأسم.."/>
+                
+                </div>
+          </div>
+          </div>
             <div className="student-table py-3">
             <table class="table bg-white">
    <thead>
@@ -74,26 +87,7 @@ export default function AdminDashboard() {
       <td>@mdo</td>
       <td>@mdo</td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    
   </tbody>
 </table>
             </div>

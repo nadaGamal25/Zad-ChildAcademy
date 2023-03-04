@@ -438,6 +438,38 @@ footer .qtouf{
   right: 0;
   bottom: -7px;
 }
+.student-table{
+  overflow-x: scroll;
+}
+.search-input{
+  height: 36px;
+  width: 60%;
+}
+.search-input input{
+  flex-grow: 1;
+  padding: 0 16px;
+  height: 100%;
+  border:none;
+  background:#fff;
+  border-radius: 36px 0 0 36px;
+  outline: none;
+  padding: 5px;
+  overflow: hidden;
+}
+.search-input button{
+  width: 36px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--light-green);
+  color: #f7f7f7;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-radius: 0 36px 36px 0;
+  padding: 5px;
+}
 /* end admin dashboard */
 
 @media only screen and (max-width: 576px){
@@ -458,4 +490,9 @@ footer .qtouf{
   footer .qtouf{
     width: 80%;
   }
+}
+.notfound{
+  font-size: 40px;
+  background-color: #c1c6c2;
+  color: rgb(197, 6, 6);
 }
