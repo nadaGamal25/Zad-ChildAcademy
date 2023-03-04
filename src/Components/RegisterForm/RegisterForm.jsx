@@ -19,7 +19,7 @@ export default function RegisterForm() {
       })
       const [error , setError]= useState('')
       async function sendDataToApi(){
-        let res = await axios.post(`http://localhost:5000/students/register`,student);
+        let res = await axios.post(`https://zadkinder-production.up.railway.app/students/register`,student);
         
       }
       function getStudentData(e){

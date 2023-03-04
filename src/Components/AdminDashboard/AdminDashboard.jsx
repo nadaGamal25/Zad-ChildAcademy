@@ -8,14 +8,14 @@ export default function AdminDashboard() {
   const [studentData , setStudentData]= useState([]);
   const [studentNumber, setStudentNumber] = useState(10);
 
-  async function getStudentData(){
-    let {data} =await axios.get(`http://localhost:5000/admin/students/${studentNumber}`);
-    console.log(data);
-    setStudentData(data);
+  async function getStudentData(studentNumber){
+    let {data} =await axios.get(`https://zadkinder-production.up.railway.app/admin/students/${studentNumber}`);
+    console.log(data.data);
+    setStudentData(data.data);
   }
   useEffect(() => {
-    getStudentData();
-  }, [studentNumber]);
+    getStudentData(10);
+  }, []);
 
   function handleMoreBtnClick() {
     setStudentNumber(prevStudentNumber => prevStudentNumber + 10);
@@ -91,7 +91,8 @@ export default function AdminDashboard() {
     </tr>
    </thead>
   <tbody>
-    {studentData.filter((item)=>{
+  
+    {Array.isArray(studentData) && studentData.filter((item)=>{
       return search === ''? item : item.name.includes(search);
     }).map((item,index)=>{
       return(
