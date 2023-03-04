@@ -19,7 +19,7 @@ export default function RegisterForm() {
       })
       const [error , setError]= useState('')
       async function sendDataToApi(){
-        let res = await axios.post(`https://zadkinder-production.up.railway.app/students/register`,student);
+        let {data} = await axios.post(`https://zadkinder-production.up.railway.app/students/register`,student);
         
       }
       function getStudentData(e){
@@ -37,6 +37,7 @@ export default function RegisterForm() {
             window.alert("يجب ملئ جميع البيانات")
 
        }else{
+        window.alert("تم حفظ بيانات الطالب بنجاح")
         sendDataToApi();
        }
       }
