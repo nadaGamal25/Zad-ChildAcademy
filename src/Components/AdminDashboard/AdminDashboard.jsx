@@ -1,10 +1,30 @@
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 export default function AdminDashboard() {
+  const [search, setSearch]= useState('')
+  console.log(search);
+  const [studentData , setStudentData]= useState([]);
+  const [studentNumber, setStudentNumber] = useState(10);
+
+  async function getStudentData(){
+    let {data} =await axios.get(`http://localhost:5000/admin/students/${studentNumber}`);
+    console.log(data);
+    setStudentData(data);
+  }
+  useEffect(() => {
+    getStudentData();
+  }, [studentNumber]);
+
+  function handleMoreBtnClick() {
+    setStudentNumber(prevStudentNumber => prevStudentNumber + 10);
+  }
+
   return (
     <>
     <div className="p-5">
-        <div className="admin-heading">
+    <div className="admin-heading">
             <h1>لوحة التحكم</h1>
         </div>
         <div className="row py-5 g-4">
@@ -36,7 +56,7 @@ export default function AdminDashboard() {
                 <span> % </span>
                 </div>
             </div>
-            </div> 
+            </div>
         <div className="students p-4">
           <div className="row g-2">
             <div className="col-md-6">
@@ -47,7 +67,7 @@ export default function AdminDashboard() {
               <button class="search-btn">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
-                <input name="search" id="searchInput" type="search" placeholder="بحث بالأسم.."/>
+                <input name="search" id="searchInput" onChange={(e)=> setSearch(e.target.value)} type="search" placeholder="بحث بالأسم.."/>
                 
                 </div>
           </div>
@@ -64,7 +84,6 @@ export default function AdminDashboard() {
       <th scope="col">الروضة</th>
       <th scope="col">وقت الدوام</th>
       <th scope="col">ولى الأمر</th>
-      <th scope="col">الفئة العمرية</th>
       <th scope="col">جوال الأب</th>
       <th scope="col">جوال الأم</th>
       <th scope="col">الحي</th>
@@ -72,24 +91,31 @@ export default function AdminDashboard() {
     </tr>
    </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
+    {studentData.filter((item)=>{
+      return search === ''? item : item.name.includes(search);
+    }).map((item,index)=>{
+      return(
+        <tr key={index}>
+      <th scope="row">{index +1}</th>
+      <td>{item.name}</td>
+      <td>{item.gender}</td>
+      <td>{item.nationality}</td>
+      <td>{item.cid}</td>
+      <td>{item.kinder}</td>
+      <td>{item.time}</td>
+      <td>{item.fathername}</td>
+      <td>{item.fatherno}</td>
+      <td>{item.motherno}</td>
+      <td>{item.address}</td>
+      <td>{item.bus}</td>
     </tr>
+      )
+    })}
+    
     
   </tbody>
-</table>
+            </table>
+            <button className="btn more-btn" onClick={handleMoreBtnClick}>عرض المزيد</button>
             </div>
 
             </div>    
@@ -97,3 +123,4 @@ export default function AdminDashboard() {
     </>
   )
 }
+ 
