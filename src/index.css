@@ -10,7 +10,7 @@
   --text-color:#2c3544;
   --bink-color:#fa7cbc;
   --orange-color:#fe7524;
-  --green-color:#6ace6f;
+  --green-color:#28af2f;
   --light-green:#02d2b2;
 }
 .bink{
@@ -25,8 +25,21 @@
 .light-green{
   background-color: var(--light-green);
 }
+.voilet{
+  background-color: #8e0cc4;
+}
+.dark-grey{
+  background-color: var(--text-color);
+}
 a , button{
   cursor: pointer;
+  transition: all 0.3s;
+}
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none !important;
 }
 /* start navbar */
 .colors{
@@ -61,14 +74,26 @@ a , button{
 .bg-bink i{
   background-color: var(--bink-color);
 }
+.bg-bink a:hover{
+  color: var(--bink-color);
+}
 .bg-orange i{
   background-color: var(--orange-color);
+}
+.bg-orange a:hover{
+  color: var(--orange-color);
 }
 .bg-green i{
   background-color: var(--green-color);
 }
+.bg-green a:hover{
+  color: var(--green-color);
+}
 .bg-light-green i{
   background-color: var(--light-green);
+}
+.bg-light-green a:hover{
+  color: var(--light-green);
 }
 .bg-light-green a::before{
   content: "";
@@ -109,6 +134,10 @@ a , button{
 nav{
   box-shadow: 3px  3px 5px #c1c6c2;
 }
+nav .dropdown-item:hover{
+  transform: translateX(5px);
+  background:none !important;
+}
 /* end navbar */
 /* start register page */
 .register-container li{
@@ -139,6 +168,8 @@ nav{
 .submit-btn:hover{
   color: #fff !important;
   background-color: #6c0e95 !important;
+  transform: scale(1.03);
+
 }
 /*end register page */
 /* start footer */
@@ -163,6 +194,8 @@ footer{
   height: 100%;
   background-image: url(./assets/foo.png);
   background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 .footer-info{
   display: flex;
@@ -253,8 +286,21 @@ footer .qtouf{
   border-radius: 50%;
   margin:0px 5px;
 }
-.feature{
+.feature {
   padding-bottom: 10px;
+  animation-duration: 2s;
+  animation-name: slidein;
+}
+@keyframes slidein {
+  from {
+    margin-top: 100%;
+    height: 300%;
+  }
+
+  to {
+    margin-top: 0%;
+    height: 100%;
+  }
 }
 .feature i{
   font-size: 40px;
@@ -265,6 +311,10 @@ footer .qtouf{
   height: 80px;
   text-align: center;
   margin-left: 10px;
+  transition: all 0.3s;
+}
+.feature i:hover{
+  transform: rotateY(180deg);
 }
 .feature p{
   font-weight: 600;
@@ -290,6 +340,10 @@ footer .qtouf{
 .bg-voilet h2{
   color: #8e0cc4;
 }
+.img-albums{
+  animation-duration: 2s;
+  animation-name: slidein;
+}
 .album-heading h1{
   color: var(--bink-color);
   font-weight: 900;
@@ -300,6 +354,10 @@ footer .qtouf{
   position: relative;
   background-color: #c1c6c2;
   border-radius: 10px;
+  transition: all 0.3s;
+}
+.grey-col:hover{
+  transform: scale(1.05);
 }
 .grey-col h2{
   color: #fff;
@@ -394,7 +452,8 @@ footer .qtouf{
   padding: 15px;
   margin:20px 0;
 }
-.sm-card h3{
+.sm-card h3,
+.sm-card h4{
   font-weight: 600;
   color: #2c3544;
 }
@@ -481,7 +540,299 @@ footer .qtouf{
   font-weight: 600;
   background-color: #02a990;
 }
+.student-register{
+  background-color: #dddddd;
+  border-radius: 10px;
+}
+.student-register h2{
+  color: #6c0e95;
+  font-weight: 600;
+}
 /* end admin dashboard */
+/* start requirement page */
+.require-heading h1{
+  color: var(--orange-color);
+  font-weight: 900;
+  font-size: 45px;
+  padding: 0 6px;
+}
+.require h3{
+  color: var(--text-color);
+  padding: 30px 0px 15px 0px;
+}
+.require i{
+  font-size: 26px;
+  color: #1998d3;
+}
+.require li{
+  font-size: 24px;
+  color: #8e0cc4;
+  padding-bottom: 8px;
+}
+/* end requirement page */
+/* start programmes page */
+.programmes{
+  animation-duration: 1s;
+  animation-name: slidein;
+}
+.program-heading h1{
+  color: #8e0cc4;
+  font-weight: 900;
+  font-size: 45px;
+  padding: 0 6px;
+}
+.programme{
+  border-radius: 12px;
+  padding: 7px;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+.head-card{
+  background-color: #fff;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+}
+.head-card h4{
+  text-align: center;
+  padding: 8px 0px;
+  font-weight: 600;
+}
+.programmes .green .head-card h4{
+  border-bottom: var(--green-color) 4px solid;
+}
+.programmes .orange .head-card h4{
+  border-bottom: var(--orange-color) 4px solid;
+}
+.programmes .light-green .head-card h4{
+  border-bottom: var(--light-green) 4px solid;
+}
+.programmes .voilet .head-card h4{
+  border-bottom: #8e0cc4 4px solid;
+}
+.programmes .green .head-card h4 span{
+  color: var(--green-color);
+}
+.programmes .orange .head-card h4 span{
+  color: var(--orange-color);
+}
+.programmes .light-green .head-card h4 span{
+  color: var(--light-green);
+}
+.programmes .voilet .head-card h4 span{
+  color:#8e0cc4;
+}
+.programme-caption h5{
+  text-align: center;
+  color: var(--text-color);
+  background-color: #fff;
+  border-radius: 6px;
+  margin: 10px;
+  display: inline;
+  padding: 5px 30px;
+  font-weight: 600;
+  font-size: 22px;
+  box-shadow: 0px 5px 0px #2c3544 ;
+}
+/* .box {
+  --mask: radial-gradient(165px at 165px 50%,#0000 97%,#000) -165px/ 100% 305.25px;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+} */
+.programme img{
+  height: 340px;
+}
+.programme-caption ul{
+  list-style:inside !important;
+  margin-bottom: 0 !important;
+}
+.programme-caption li{
+  color: #fff;
+  padding: 3px 0;
+  font-size: 20px;
+  font-weight: 900;
+}
+.programme-caption a{
+  color: #fff;
+  font-weight: 900;
+  font-size: 20px;
+  padding: 3px 15px;
+  position: relative;
+  transition: all 0.4s;
+}
+.programme-caption a:hover{
+  color: #fff;
+}
+.registeranchor:hover{
+  transform: scale(1.1) !important;
+}
+.programmes .green .programme-caption a{
+  background-color: #06590b;
+}
+.programmes .orange .programme-caption a{
+  background-color: #7f3103;
+}
+.programmes .light-green .programme-caption a{
+  background-color: #02584b;
+}
+.programmes .voilet .programme-caption a{
+  background-color: #490866;
+}
+.programme-caption a span{
+  padding: 0 20px;
+}
+.circle-right{
+  position: absolute;
+  font-size: 30px;
+  right: -13px;
+}
+.circle-left{
+  position: absolute;
+  font-size: 30px;
+}
+.programmes .green .circle-left,
+.programmes .green .circle-right{
+  color: var(--green-color);
+}
+.programmes .orange .circle-left,
+.programmes .orange .circle-right{
+  color: var(--orange-color);
+}
+.programmes .light-green .circle-left,
+.programmes .light-green .circle-right{
+  color: var(--light-green);
+}
+.programmes .voilet .circle-left,
+.programmes .voilet .circle-right{
+  color:#8e0cc4;
+}
+.programme:hover{
+  transform: scale(1.03);
+}
+/* end programmes page */
+/* start about page */
+.about-heading h1{
+  color: var(--light-green);
+  font-weight: 900;
+  font-size: 45px;
+  padding: 0 6px;
+}
+.about h3{
+  color: var(--text-color);
+  padding: 30px 0px 15px 0px;
+}
+.about i{
+  font-size: 26px;
+  color: var(--light-green);
+}
+.about li{
+  font-size: 24px;
+  color:var(--text-color);
+  padding-bottom: 8px;
+}
+.about-card{
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #EAFBF8;
+  transition: all 0.4s;
+}
+.about-card i{
+  color: var(--light-green);
+  text-align: center;
+  border: solid 1px var(--light-green);
+  border-radius: 50%;
+  padding: 15px;
+  transition: all 0.4s;
+}
+.about-card h3{
+  font-weight: 600;
+  color: var(--text-color);
+  transition: all 0.4s;
+}
+.about-card p{
+  transition: all 0.4s;
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: 18px;
+}
+.about-card:hover{
+  transform: scale(1.1);
+  background-color: #67E4D0;
+}
+.about-card:hover i{
+  color: #EAFBF8;
+  border: solid 1px #EAFBF8;
+}
+.about-card:hover h3{
+  color: #EAFBF8;
+}
+.about-card:hover p{
+  color: #EAFBF8;
+}
+
+/* end about page */
+/* start zad page */
+.zad-heading h1{
+  color: var(--orange-color);
+  font-weight: 900;
+  font-size: 45px;
+  padding: 0 6px;
+}
+.zadAcademy h2{
+  color: var(--text-color);
+  font-weight: 600;
+}
+.zadAcademy h3{
+  color: var(--text-color);
+  padding: 30px 0px 15px 0px;
+}
+.zadAcademy i{
+  font-size: 26px;
+  color: var(--orange-color);
+}
+.zadAcademy li{
+  font-size: 24px !important;
+  color: var(--text-color);
+  padding-bottom: 8px;
+}
+.zad-btn{
+  background-color: var(--orange-color) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+}
+.zad-btn:hover{
+  background-color: #da501e !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  transform: scale(1.03);
+}
+/* end zad page */
+/* start qtouf page*/
+.qtouf-heading h1{
+  color: var(--light-green);
+  font-weight: 900;
+  font-size: 45px;
+  padding: 0 6px;
+}
+.qtouf-btn{
+  background-color: var(--light-green) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+}
+.qtouf-btn:hover{
+  background-color: #0ea58f !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  transform: scale(1.03);
+}
+.qtoufAcademy h3{
+  color: var(--text-color);
+  padding: 30px 0px 10px 0px;
+  font-weight: 600;
+}
+.qtoufAcademy p{
+  color: var(--text-color);
+  font-size: 20px;
+}
 
 @media only screen and (max-width: 576px){
   .color-box h5{

@@ -17,7 +17,7 @@ export default function Footer() {
 مقابل مسجد الفالح</h5> 
           </div>
           <div className="qtouf m-auto my-2">
-          <h3>أكاديمية زاد الطفل</h3>
+          <h3>أكاديمية قطوف الطفل</h3>
             <h2> 0507802302<i class="fa-solid fa-phone-volume"></i></h2>
             <h5><i class="fa-solid fa-location-dot"></i> خميس مشيط - طريق المدينة
 العسكرية - خلف مطاعم السده</h5>

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import TheFormRegister from '../TheFormRegister/TheFormRegister';
 
 export default function AdminDashboard() {
   const [search, setSearch]= useState('')
@@ -28,29 +29,35 @@ export default function AdminDashboard() {
             <h1>لوحة التحكم</h1>
         </div>
         <div className="row py-5 g-4">
-            <div className="col-md-3 col-sm-6 ">
-                <div className="sm-card text-center card1">
+            <div className="col-md-6 col-sm-6 col-lg-3 ">
+                <div className="sm-card text-center card1 h-100">
                 <i class="fa-solid fa-graduation-cap"></i>
-                <h3>إجمالى الطلاب</h3>
-                <span> % </span>
+                <div className="d-flex pe-3">
+                  <h4>زاد الطفل:</h4>
+                  <h4 className='pt-1'>%</h4>    
+                </div>
+                <div className="d-flex pe-3">
+                <h4>قطوف الطفل:</h4>
+                <h4 className='pt-1'>%</h4>    
+                </div>
                 </div>
             </div>
-            <div className="col-md-3 col-sm-6">
-                <div className="sm-card bg-bink text-center card2">
+            <div className="col-md-6 col-sm-6 col-lg-3">
+                <div className="sm-card bg-bink text-center card2 h-100">
                 <i class="fa-solid fa-person-chalkboard"></i>
-                <h3>إجمالى المعلمين</h3>
+                <h3>إجمالى المعلمات</h3>
                 <span> % </span>
                 </div>
             </div>
-            <div className="col-md-3 col-sm-6">
-                <div className="sm-card bg-orange text-center card3">
+            <div className="col-md-6 col-sm-6 col-lg-3">
+                <div className="sm-card bg-orange text-center card3 h-100">
                 <i class="fa-solid fa-book-open-reader"></i>
                 <h3>إجمالى المواد الدراسية</h3>
                 <span> % </span>
                 </div>
             </div>
-            <div className="col-md-3 col-sm-6">
-                <div className="sm-card bg-green text-center card4">
+            <div className="col-md-6 col-sm-6 col-lg-3">
+                <div className="sm-card bg-green text-center card4 h-100">
                 <i class="fa-brands fa-buromobelexperte"></i>
                 <h3>إجمالى الفصول</h3>
                 <span> % </span>
@@ -119,7 +126,11 @@ export default function AdminDashboard() {
             <button className="btn more-btn" onClick={handleMoreBtnClick}>عرض المزيد</button>
             </div>
 
-            </div>    
+            </div>   
+        <div className="student-register p-4 my-3 register-container"> 
+        <h2><i class="fa-solid ps-2 fa-user"></i>اضافة طالب جديد :</h2>
+        <TheFormRegister/>
+        </div>    
     </div>
     </>
   )

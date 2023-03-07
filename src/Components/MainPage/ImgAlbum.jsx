@@ -4,7 +4,7 @@ export default function ImgAlbum() {
   return (
     <>
     <section className="">
-        <div className="container">
+        <div className="container img-albums">
         <div className="album-heading d-flex align-items-center justify-content-center">
                 <span className="dot green"></span>
                 <span className="light-green dot"></span>
