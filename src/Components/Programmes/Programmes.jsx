@@ -17,7 +17,7 @@ export default function Programmes() {
                 <span className="dot dark-grey"></span>
         </div>
         <div className="row programmes py-5 g-4">
-            <div className="col-md-3 col-sm-6">
+            <div className="col-md-6 col-sm-6 col-lg-3">
                 <div className="programme green h-100">
                     <div className="head-card">
                         <div className="mx-2">
@@ -40,7 +40,7 @@ export default function Programmes() {
                     </div>
                 </div>
             </div>
-            <div className="col-md-3 col-sm-6">
+            <div className="col-md-6 col-sm-6 col-lg-3">
                 <div className="programme orange h-100">
                     <div className="head-card">
                         <div className="mx-2">
@@ -63,7 +63,7 @@ export default function Programmes() {
                     </div>
                 </div>
             </div>
-            <div className="col-md-3 col-sm-6">
+            <div className="col-md-6 col-sm-6 col-lg-3">
                 <div className="programme light-green h-100">
                     <div className="head-card">
                         <div className="mx-2">
@@ -86,7 +86,7 @@ export default function Programmes() {
                     </div>
                 </div>
             </div>
-            <div className="col-md-3 col-sm-6">
+            <div className="col-md-6 col-sm-6 col-lg-3">
                 <div className="programme voilet h-100">
                     <div className="head-card">
                         <div className="mx-2">
