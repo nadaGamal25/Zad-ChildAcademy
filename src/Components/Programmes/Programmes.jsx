@@ -4,11 +4,13 @@ import img1 from '../../assets/img1.png'
 import img2 from '../../assets/img2.png'
 import img3 from '../../assets/img3.png'
 import img4 from '../../assets/img4.png'
+import Fade from 'react-reveal/Fade'
 
 export default function Programmes() {
   return (
     <>
     <div className="container py-5">
+    <Fade top diatance="20%" duration={1200}>
     <div className="program-heading d-flex align-items-center justify-content-center">
                 <span className="dot dark-grey"></span>
                 <span className="dark-grey dot"></span>
@@ -16,7 +18,9 @@ export default function Programmes() {
                 <span className="dark-grey dot"></span>
                 <span className="dot dark-grey"></span>
         </div>
+        </Fade>
         <div className="row programmes py-5 g-4">
+        <Fade top duration={1300} distance="30%">
             <div className="col-md-6 col-sm-6 col-lg-3">
                 <div className="programme green h-100">
                     <div className="head-card">
@@ -109,6 +113,7 @@ export default function Programmes() {
                     </div>
                 </div>
             </div>
+            </Fade>
         </div>
     </div>
     </>

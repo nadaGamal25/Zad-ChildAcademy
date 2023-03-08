@@ -1,9 +1,11 @@
 import React from 'react'
+import Fade from 'react-reveal/Fade'
 
 export default function About() {
   return (
     <>
     <div className="container about py-5">
+      <Fade top diatance="30%" duration={1300}>
         <div className="about-heading d-flex align-items-center justify-content-center">
                 <span className="orange dot"></span>
                 <span className="dot bink"></span>
@@ -11,6 +13,7 @@ export default function About() {
                 <span className="dot bink"></span>
                 <span className="orange dot"></span>
         </div>
+        
         <div className='pb-5'>
           <h3>أكاديمية تربوية تعليمية ذات مناهج خاصة هدفنا التميز والإنفراد بالعطاء التربوي والإستثمار فى مجال الطفولة المبكرة التي ستقود الغد</h3>
           <ul>
@@ -22,7 +25,9 @@ export default function About() {
           <li><i class="fa-solid fa-check"></i> إستشارات أسرية وتربوية .</li>
           </ul>
         </div>
+        </Fade>
         <div className="row g-3">
+          <Fade top diatance="30%" duration={1300}>
         <div className="col-md-5">
           <div className="about-card h-100 text-center">
           <i class="fa-regular fa-eye"></i>
@@ -38,6 +43,7 @@ export default function About() {
         <p>نحن نعمل كمحضن تربوي نعنى بتعليم القرآن الكريم ورسم منهج صحيح للطفل من خلال مناهج تربوية هادفة وتقنيات حديثة وكوادر مؤهلة لتخريج أطفال متفوقين.</p>
         </div>
         </div>
+        </Fade>
         </div>
     </div>
     </>

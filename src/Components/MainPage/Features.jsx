@@ -1,10 +1,12 @@
 import React from 'react'
+import Fade from 'react-reveal/Fade'
 
 export default function Features() {
   return (
     <>
     <section className="py-5">
         <div className="container pt-5">
+            <Fade top >
             <div className="feature-heading d-flex align-items-center justify-content-center">
                 <span className="dot bink"></span>
                 <span className="light-green dot"></span>
@@ -13,7 +15,9 @@ export default function Features() {
                 <span className="dot bink"></span>
 
             </div>
+            </Fade>
             <div className="features row pt-4">
+                <Fade top duration={1200}>
                 <div className="col-md-6">
                     <div className="feature d-flex bg-orange">
                     <span><i class="fa-solid fa-book"></i></span>
@@ -89,6 +93,7 @@ export default function Features() {
                         </div>
                     </div>
                 </div>
+                </Fade>
             </div>
         </div>
 

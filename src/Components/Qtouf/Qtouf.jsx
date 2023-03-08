@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Fade from 'react-reveal/Fade'
 
 export default function Qtouf() {
   return (
     <>
     <div className="container py-5 qtoufAcademy">
+    <Fade top diatance="20%" duration={1200}>
     <div className="qtouf-heading d-flex align-items-center justify-content-center">
                 <span className="green dot"></span>
                 <span className="dot bink"></span>
@@ -18,6 +20,7 @@ export default function Qtouf() {
            
             <Link to="/register" className="btn qtouf-btn">التسجيل الان</Link>
         </div>
+        </Fade>
     </div>
     </>
   )

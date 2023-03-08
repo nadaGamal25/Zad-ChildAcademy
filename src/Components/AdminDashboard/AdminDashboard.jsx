@@ -7,20 +7,20 @@ export default function AdminDashboard() {
   const [search, setSearch]= useState('')
   console.log(search);
   const [studentData , setStudentData]= useState([]);
-  const [studentNumber, setStudentNumber] = useState(10);
+  const [visible, setVisible] =useState(10);
 
-  async function getStudentData(studentNumber){
-    let {data} =await axios.get(`https://zadkinder-production.up.railway.app/admin/students/${studentNumber}`);
+  const showMoreStudents =()=>{
+    setVisible((prevValue) => prevValue + 10);
+  }
+
+  async function getStudentData(){
+    let {data} =await axios.get(`https://zadkinder-production.up.railway.app/admin/students/0`);
     console.log(data.data);
     setStudentData(data.data);
   }
   useEffect(() => {
     getStudentData(10);
   }, []);
-
-  function handleMoreBtnClick() {
-    setStudentNumber(prevStudentNumber => prevStudentNumber + 10);
-  }
 
   return (
     <>
@@ -101,7 +101,7 @@ export default function AdminDashboard() {
   
     {Array.isArray(studentData) && studentData.filter((item)=>{
       return search === ''? item : item.name.includes(search);
-    }).map((item,index)=>{
+    }).slice(0,visible).map((item,index)=>{
       return(
         <tr key={index}>
       <th scope="row">{index +1}</th>
@@ -123,7 +123,7 @@ export default function AdminDashboard() {
     
   </tbody>
             </table>
-            <button className="btn more-btn" onClick={handleMoreBtnClick}>عرض المزيد</button>
+            <button className="btn more-btn" onClick={showMoreStudents}>عرض المزيد</button>
             </div>
 
             </div>   
