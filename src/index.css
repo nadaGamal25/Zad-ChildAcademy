@@ -41,6 +41,17 @@ ul{
 a{
   text-decoration: none !important;
 }
+.section {
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
 /* start navbar */
 .colors{
   width: 100%;

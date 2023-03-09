@@ -1,11 +1,36 @@
-import React from 'react'
-import Fade from 'react-reveal/Fade'
+import React,{useEffect,useState} from 'react'
 
 export default function About() {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        const scrollPos = window.pageYOffset;
+        const isVisible = scrollPos > sectionTop - window.innerHeight + sectionHeight / 2;
+        if (isVisible) {
+          section.classList.add('fade-in');
+        } else {
+          section.classList.remove('fade-in');
+        }
+      });
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const firstSection = document.querySelector('.section');
+    firstSection.classList.add('fade-in');
+  }, []);
   return (
     <>
     <div className="container about py-5">
-      <Fade top diatance="30%" duration={1300}>
+      <div className='section'>
         <div className="about-heading d-flex align-items-center justify-content-center">
                 <span className="orange dot"></span>
                 <span className="dot bink"></span>
@@ -13,10 +38,11 @@ export default function About() {
                 <span className="dot bink"></span>
                 <span className="orange dot"></span>
         </div>
+        </div>
         
         <div className='pb-5'>
-          <h3>أكاديمية تربوية تعليمية ذات مناهج خاصة هدفنا التميز والإنفراد بالعطاء التربوي والإستثمار فى مجال الطفولة المبكرة التي ستقود الغد</h3>
-          <ul>
+          <h3 className='section'>أكاديمية تربوية تعليمية ذات مناهج خاصة هدفنا التميز والإنفراد بالعطاء التربوي والإستثمار فى مجال الطفولة المبكرة التي ستقود الغد</h3>
+          <ul className='section'>
           <li><i class="fa-solid fa-check"></i> خبرة فى مجال الطفولة المبكرة .</li>
           <li><i class="fa-solid fa-check"></i> برامج تعليمية عالمية مميزة ومنتقاة زاد الطفل .</li>
           <li><i class="fa-solid fa-check"></i> كادر تعليمي ذو خبرات علمية وتعليمية .</li>
@@ -25,9 +51,8 @@ export default function About() {
           <li><i class="fa-solid fa-check"></i> إستشارات أسرية وتربوية .</li>
           </ul>
         </div>
-        </Fade>
-        <div className="row g-3">
-          <Fade top diatance="30%" duration={1300}>
+        
+        <div className='section row g-3'>
         <div className="col-md-5">
           <div className="about-card h-100 text-center">
           <i class="fa-regular fa-eye"></i>
@@ -43,7 +68,7 @@ export default function About() {
         <p>نحن نعمل كمحضن تربوي نعنى بتعليم القرآن الكريم ورسم منهج صحيح للطفل من خلال مناهج تربوية هادفة وتقنيات حديثة وكوادر مؤهلة لتخريج أطفال متفوقين.</p>
         </div>
         </div>
-        </Fade>
+        
         </div>
     </div>
     </>

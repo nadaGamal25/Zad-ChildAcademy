@@ -1,26 +1,48 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import { Link } from 'react-router-dom'
 import img1 from '../../assets/img1.png'
 import img2 from '../../assets/img2.png'
 import img3 from '../../assets/img3.png'
 import img4 from '../../assets/img4.png'
-import Fade from 'react-reveal/Fade'
 
 export default function Programmes() {
+    const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        const scrollPos = window.pageYOffset;
+        const isVisible = scrollPos > sectionTop - window.innerHeight + sectionHeight / 2;
+        if (isVisible) {
+          section.classList.add('fade-in');
+        } else {
+          section.classList.remove('fade-in');
+        }
+      });
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const firstSection = document.querySelector('.section');
+    firstSection.classList.add('fade-in');
+  }, []);
   return (
     <>
     <div className="container py-5">
-    <Fade top diatance="20%" duration={1200}>
-    <div className="program-heading d-flex align-items-center justify-content-center">
+    <div className="program-heading d-flex align-items-center justify-content-center section">
                 <span className="dot dark-grey"></span>
                 <span className="dark-grey dot"></span>
                 <h1> البرامج والرسوم الدراسية </h1>
                 <span className="dark-grey dot"></span>
                 <span className="dot dark-grey"></span>
         </div>
-        </Fade>
-        <div className="row programmes py-5 g-4">
-        <Fade top duration={1300} distance="30%">
+        <div className="row programmes py-5 g-4 section">
             <div className="col-md-6 col-sm-6 col-lg-3">
                 <div className="programme green h-100">
                     <div className="head-card">
@@ -113,7 +135,6 @@ export default function Programmes() {
                     </div>
                 </div>
             </div>
-            </Fade>
         </div>
     </div>
     </>

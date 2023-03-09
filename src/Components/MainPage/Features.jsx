@@ -1,13 +1,37 @@
-import React from 'react'
-import Fade from 'react-reveal/Fade'
+import React,{useEffect,useState} from 'react'
 
 export default function Features() {
+    const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        const scrollPos = window.pageYOffset;
+        const isVisible = scrollPos > sectionTop - window.innerHeight + sectionHeight / 2;
+        if (isVisible) {
+          section.classList.add('fade-in');
+        } else {
+          section.classList.remove('fade-in');
+        }
+      });
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const firstSection = document.querySelector('.section');
+    firstSection.classList.add('fade-in');
+  }, []);
   return (
     <>
     <section className="py-5">
         <div className="container pt-5">
-            <Fade top >
-            <div className="feature-heading d-flex align-items-center justify-content-center">
+            <div className="section feature-heading d-flex align-items-center justify-content-center">
                 <span className="dot bink"></span>
                 <span className="light-green dot"></span>
                 <h1> ما يميزنا </h1>
@@ -15,10 +39,8 @@ export default function Features() {
                 <span className="dot bink"></span>
 
             </div>
-            </Fade>
             <div className="features row pt-4">
-                <Fade top duration={1200}>
-                <div className="col-md-6">
+                <div className="col-md-6 section">
                     <div className="feature d-flex bg-orange">
                     <span><i class="fa-solid fa-book"></i></span>
                         <div className="feature-caption">
@@ -28,7 +50,7 @@ export default function Features() {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 section">
                     <div className="feature d-flex bg-light-green">
                     <span><i class="fa-solid fa-book-open"></i></span>
                         <div className="feature-caption">
@@ -39,7 +61,7 @@ export default function Features() {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 section">
                     <div className="feature d-flex bg-bink">
                     <span><i class="fa-solid fa-person-arrow-up-from-line"></i></span>
                         <div className="feature-caption">
@@ -48,7 +70,7 @@ export default function Features() {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 section">
                     <div className="feature d-flex bg-voilet">
                     <span><i class="fa-solid fa-child-reaching"></i></span>
                         <div className="feature-caption">
@@ -57,7 +79,7 @@ export default function Features() {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 section">
                     <div className="feature d-flex bg-green">
                     <span><i class="fa-solid fa-graduation-cap"></i></span>
                         <div className="feature-caption">
@@ -66,7 +88,7 @@ export default function Features() {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 section">
                     <div className="feature d-flex bg-orange">
                     <span><i class="fa-regular fa-comments"></i></span>
                         <div className="feature-caption">
@@ -75,7 +97,7 @@ export default function Features() {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 section">
                     <div className="feature d-flex bg-voilet">
                     <span><i class="fa-solid fa-bus"></i></span>
                         <div className="feature-caption">
@@ -84,7 +106,7 @@ export default function Features() {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 section">
                     <div className="feature d-flex bg-bink">
                     <span><i class="fa-solid fa-desktop"></i></span>
                         <div className="feature-caption">
@@ -93,7 +115,6 @@ export default function Features() {
                         </div>
                     </div>
                 </div>
-                </Fade>
             </div>
         </div>
 
