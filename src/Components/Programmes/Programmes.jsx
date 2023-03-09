@@ -6,43 +6,25 @@ import img3 from '../../assets/img3.png'
 import img4 from '../../assets/img4.png'
 
 export default function Programmes() {
-    const [isVisible, setIsVisible] = useState(false);
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        const scrollPos = window.pageYOffset;
-        const isVisible = scrollPos > sectionTop - window.innerHeight + sectionHeight / 2;
-        if (isVisible) {
-          section.classList.add('fade-in');
-        } else {
-          section.classList.remove('fade-in');
-        }
-      });
-    };
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const [showSection, setShowSection] = useState(false);
 
-  useEffect(() => {
-    const firstSection = document.querySelector('.section');
-    firstSection.classList.add('fade-in');
-  }, []);
+    useEffect(() => {
+      setShowSection(true);
+    }, []);
+  
+    
   return (
     <>
-    <div className="container py-5">
-    <div className="program-heading d-flex align-items-center justify-content-center section">
+    <div className="container py-5 ">
+        <div className={`sectionToUp ${showSection ? 'fade-in-from-bottom' : ''}`}>
+    <div className="program-heading d-flex align-items-center justify-content-center">
                 <span className="dot dark-grey"></span>
                 <span className="dark-grey dot"></span>
                 <h1> البرامج والرسوم الدراسية </h1>
                 <span className="dark-grey dot"></span>
                 <span className="dot dark-grey"></span>
         </div>
-        <div className="row programmes py-5 g-4 section">
+        <div className="row programmes py-5 g-4 ">
             <div className="col-md-6 col-sm-6 col-lg-3">
                 <div className="programme green h-100">
                     <div className="head-card">
@@ -135,6 +117,7 @@ export default function Programmes() {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
     </>

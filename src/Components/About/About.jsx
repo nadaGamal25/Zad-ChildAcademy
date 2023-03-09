@@ -1,36 +1,42 @@
 import React,{useEffect,useState} from 'react'
 
 export default function About() {
-  const [isVisible, setIsVisible] = useState(false);
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        const scrollPos = window.pageYOffset;
-        const isVisible = scrollPos > sectionTop - window.innerHeight + sectionHeight / 2;
-        if (isVisible) {
-          section.classList.add('fade-in');
-        } else {
-          section.classList.remove('fade-in');
-        }
-      });
-    };
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const [showSection, setShowSection] = useState(false);
 
-  useEffect(() => {
-    const firstSection = document.querySelector('.section');
-    firstSection.classList.add('fade-in');
-  }, []);
+    useEffect(() => {
+      setShowSection(true);
+    }, []);
+    const [isVisible, setIsVisible] = useState(false);
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          const scrollPos = window.pageYOffset;
+          const isVisible = scrollPos > sectionTop - window.innerHeight + sectionHeight / 2;
+          if (isVisible) {
+            section.classList.add('fade-in');
+          } else {
+            section.classList.remove('fade-in');
+          }
+        });
+      };
+      handleScroll();
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+  
+    useEffect(() => {
+      const firstSection = document.querySelector('.section');
+      firstSection.classList.add('fade-in');
+    }, []);
   return (
     <>
     <div className="container about py-5">
-      <div className='section'>
+      <div className={`sectionToUp ${showSection ? 'fade-in-from-bottom' : ''}`}>
+      <div className=''>
         <div className="about-heading d-flex align-items-center justify-content-center">
                 <span className="orange dot"></span>
                 <span className="dot bink"></span>
@@ -40,9 +46,9 @@ export default function About() {
         </div>
         </div>
         
-        <div className='pb-5'>
-          <h3 className='section'>أكاديمية تربوية تعليمية ذات مناهج خاصة هدفنا التميز والإنفراد بالعطاء التربوي والإستثمار فى مجال الطفولة المبكرة التي ستقود الغد</h3>
-          <ul className='section'>
+        <div className='pb-5 '>
+          <h3>أكاديمية تربوية تعليمية ذات مناهج خاصة هدفنا التميز والإنفراد بالعطاء التربوي والإستثمار فى مجال الطفولة المبكرة التي ستقود الغد</h3>
+          <ul>
           <li><i class="fa-solid fa-check"></i> خبرة فى مجال الطفولة المبكرة .</li>
           <li><i class="fa-solid fa-check"></i> برامج تعليمية عالمية مميزة ومنتقاة زاد الطفل .</li>
           <li><i class="fa-solid fa-check"></i> كادر تعليمي ذو خبرات علمية وتعليمية .</li>
@@ -51,7 +57,7 @@ export default function About() {
           <li><i class="fa-solid fa-check"></i> إستشارات أسرية وتربوية .</li>
           </ul>
         </div>
-        
+        </div>
         <div className='section row g-3'>
         <div className="col-md-5">
           <div className="about-card h-100 text-center">

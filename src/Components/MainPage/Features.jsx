@@ -3,30 +3,30 @@ import React,{useEffect,useState} from 'react'
 export default function Features() {
     const [isVisible, setIsVisible] = useState(false);
   
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        const scrollPos = window.pageYOffset;
-        const isVisible = scrollPos > sectionTop - window.innerHeight + sectionHeight / 2;
-        if (isVisible) {
-          section.classList.add('fade-in');
-        } else {
-          section.classList.remove('fade-in');
-        }
-      });
-    };
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const firstSection = document.querySelector('.section');
-    firstSection.classList.add('fade-in');
-  }, []);
+    useEffect(() => {
+      const handleScroll = () => {
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          const scrollPos = window.pageYOffset;
+          const isVisible = scrollPos > sectionTop - window.innerHeight + sectionHeight / 2;
+          if (isVisible) {
+            section.classList.add('fade-in');
+          } else {
+            section.classList.remove('fade-in');
+          }
+        });
+      };
+      handleScroll();
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+  
+    useEffect(() => {
+      const firstSection = document.querySelector('.section');
+      firstSection.classList.add('fade-in');
+    }, []);
   return (
     <>
     <section className="py-5">

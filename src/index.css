@@ -41,7 +41,16 @@ ul{
 a{
   text-decoration: none !important;
 }
-.section {
+.sectionToUp{
+  opacity: 0; /* Set initial opacity to 0 */
+  transition: all 1s; /* Set transition duration to 500ms */
+  transform: translateY(20px); /* Move element back to original position */
+}
+.fade-in-from-bottom {
+  opacity: 1; /* Set opacity to 1 for fade-in effect */
+  transform: translateY(0); /* Move element back to original position */
+}
+/* .section {
   opacity: 0;
   transform: translateY(-50%);
   transition: opacity 1s ease-in-out, transform 1s ease-in-out;
@@ -50,8 +59,28 @@ a{
 .fade-in {
   opacity: 1;
   transform: translateY(0%);
+} */
+.section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:all 0.5s ease-in-out;
 }
 
+.section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* @keyframes slidein {
+  from {
+    margin-top: 100%;
+    height: 300%;
+  }
+
+  to {
+    margin-top: 0%;
+    height: 100%;
+  }
+} */
 /* start navbar */
 .colors{
   width: 100%;
@@ -302,17 +331,7 @@ footer .qtouf{
   /* animation-duration: 2s;
   animation-name: slidein; */
 }
-/* @keyframes slidein {
-  from {
-    margin-top: 100%;
-    height: 300%;
-  }
 
-  to {
-    margin-top: 0%;
-    height: 100%;
-  }
-} */
 .feature i{
   font-size: 40px;
   color: #fff;
@@ -619,10 +638,10 @@ footer .qtouf{
 }
 /* end requirement page */
 /* start programmes page */
-.programmes{
-  animation-duration: 1s;
+/* .programmes{
+  animation-duration: 1.5s;
   animation-name: slidein;
-}
+} */
 .program-heading h1{
   color: #8e0cc4;
   font-weight: 900;

@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react'
 
 export default function ImgAlbum() {
-    const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
