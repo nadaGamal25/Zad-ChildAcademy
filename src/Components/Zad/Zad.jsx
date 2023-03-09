@@ -1,27 +1,46 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import { Link } from 'react-router-dom'
-import Fade from 'react-reveal/Fade'
 
 export default function Zad() {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        const scrollPos = window.pageYOffset;
+        const isVisible = scrollPos > sectionTop - window.innerHeight + sectionHeight / 2;
+        if (isVisible) {
+          section.classList.add('fade-in');
+        } else {
+          section.classList.remove('fade-in');
+        }
+      });
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const firstSection = document.querySelector('.section');
+    firstSection.classList.add('fade-in');
+  }, []);
   return (
     <>
     <div className="container py-5 zadAcademy">
-    <Fade top duration={1200}>
-
-    <div className="zad-heading d-flex align-items-center justify-content-center">
+    <div className="section zad-heading d-flex align-items-center justify-content-center">
                 <span className="light-green dot"></span>
                 <span className="dot bink"></span>
                 <h1> روضة زاد الطفل </h1>
                 <span className="dot bink"></span>
                 <span className="light-green dot"></span>
         </div>
-        </Fade>
-        <div>
-        <Fade top duration={1200}>
+        <div className='section'>
             <h3>تتميز الأكاديمية بوجود :</h3>
-            </Fade>
             <ul>
-            <Fade top duration={1200}>
             <li><i class="fa-solid fa-bolt"></i> معلمات متميزات في التعليم والتعامل مع الطفل</li>
             <li><i class="fa-solid fa-bolt"></i> وجود منهج متكامل للوحدات الدراسية</li>
             <li><i class="fa-solid fa-bolt"></i> وجود زاد الطفل المسلم و وجود معمل الحاسب الآلي و وجود قاعدة نورانية و لغة إنجليزية و الحساب الذهني</li>
@@ -29,7 +48,6 @@ export default function Zad() {
             <li><i class="fa-solid fa-bolt"></i> يوجد ساحة لعب خارجية تحتوى على ألعاب مسلية</li>
             <li><i class="fa-solid fa-bolt"></i> يوجد أيضا مكان مخصص لتناول الوجبة بكل أريحية </li>
             <li><i class="fa-solid fa-bolt"></i> تقام بشكل دوري أنشطة متنوعة وهادفة للطفل</li>
-            </Fade>
             </ul>
             <Link to="/register" className="btn zad-btn">التسجيل الان</Link>
         </div>
