@@ -6,6 +6,7 @@ export default function Header() {
     <section className="header">
         <div className="header-img">
             <div className="d-flex header-boxs">
+                <div className='second-box top-box'>
             <div className="big-box">
                 <div className="grey-box">
                 <div className='color-box bink'>
@@ -28,6 +29,8 @@ export default function Header() {
                 </div>
                 </div>
             </div>
+            </div>
+            <div className='second-box'>
             <div className="big-box">
                 <div className="grey-box">
                 <div className='color-box green'>
@@ -48,6 +51,7 @@ export default function Header() {
                     <h5> الرياضيات</h5>
                 </div>
                 </div>
+            </div>
             </div>
             </div>
         </div>

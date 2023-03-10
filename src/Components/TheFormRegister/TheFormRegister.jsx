@@ -52,9 +52,9 @@ export default function TheFormRegister() {
           address:Joi.string().required(),
           bus:Joi.string().required(),
           age:Joi.string(),
-          cid:Joi.number().required(),
-          fatherno:Joi.number().required(),
-          motherno:Joi.number().required(),    
+          cid:Joi.string().required(),
+          fatherno:Joi.string().required(),
+          motherno:Joi.string().required(),    
         });
         return scheme.validate(student, {abortEarly:false});
       }

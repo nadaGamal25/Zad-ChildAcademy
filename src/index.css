@@ -42,24 +42,14 @@ a{
   text-decoration: none !important;
 }
 .sectionToUp{
-  opacity: 0; /* Set initial opacity to 0 */
-  transition: all 1s; /* Set transition duration to 500ms */
-  transform: translateY(20px); /* Move element back to original position */
+  opacity: 0; 
+  transition: all 1s; 
+  transform: translateY(20px);
 }
 .fade-in-from-bottom {
-  opacity: 1; /* Set opacity to 1 for fade-in effect */
-  transform: translateY(0); /* Move element back to original position */
+  opacity: 1; 
+  transform: translateY(0); 
 }
-/* .section {
-  opacity: 0;
-  transform: translateY(-50%);
-  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-}
-
-.fade-in {
-  opacity: 1;
-  transform: translateY(0%);
-} */
 .section {
   opacity: 0;
   transform: translateY(50px);
@@ -70,17 +60,6 @@ a{
   opacity: 1;
   transform: translateY(0);
 }
-/* @keyframes slidein {
-  from {
-    margin-top: 100%;
-    height: 300%;
-  }
-
-  to {
-    margin-top: 0%;
-    height: 100%;
-  }
-} */
 /* start navbar */
 .colors{
   width: 100%;
@@ -97,7 +76,7 @@ a{
   align-items: center;
 }
 .nav-item a{
-  font-size: 18px;
+  font-size: 17px;
   color: var(--text-color);
   font-weight: 700;
   position: relative;
@@ -135,41 +114,23 @@ a{
 .bg-light-green a:hover{
   color: var(--light-green);
 }
-.bg-light-green a::before{
-  content: "";
-  height: 23px;
-  width: 2px;
-  position: absolute;
-  right: -5%;
-  top: 25%;
-  background-color: var(--light-green);
+.nav-link{
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 8px !important;
+  margin-bottom: 8px !important;
 }
-.bg-green a::before{
-  content: "";
-  height: 23px;
-  width: 2px;
-  position: absolute;
-  right: -5%;
-  top: 25%;
-  background-color: var(--green-color);
+.border-bink{
+  border-right:solid 2px var(--bink-color);
 }
-.bg-orange a::before{
-  content: "";
-  height: 23px;
-  width: 2px;
-  position: absolute;
-  right: -5%;
-  top: 25%;
-  background-color: var(--orange-color);
+.border-green{
+  border-right:solid 2px var(--green-color);
 }
-.before-bink a::before{
-  content: "";
-  height: 23px;
-  width: 2px;
-  position: absolute;
-  right: -5%;
-  top: 25%;
-  background-color: var(--bink-color);
+.border-orange{
+  border-right:solid 2px var(--orange-color);
+}
+.border-lightgreen{
+  border-right:solid 2px var(--light-green);
 }
 nav{
   box-shadow: 3px  3px 5px #c1c6c2;
@@ -178,6 +139,7 @@ nav .dropdown-item:hover{
   transform: translateX(5px);
   background:none !important;
 }
+
 /* end navbar */
 /* start register page */
 .register-container li{
@@ -288,6 +250,12 @@ footer .qtouf{
   position: absolute;
   width: 100%;
   bottom:-8% ;
+  justify-content: space-around;
+
+}
+.second-box{
+  display: flex;
+  width: 50%;
   justify-content: space-around;
 }
 .grey-box{
@@ -415,54 +383,6 @@ footer .qtouf{
   background-image: linear-gradient(to right,#9a9a9a 25%,#c1c6c2 25%,#c1c6c2 50%,#9a9a9a 50%,#9a9a9a 75%,#c1c6c2 75%);
 }
 /* end main page */
-/* start child account */
-.hello {
-  border-radius: 10px;
-}
-.hello h2{
-  color: #f3f2f2;
-  font-weight: 500;
-  padding: 25px 10px;
-}
-.hello h2 span{
-  color: #fff;
-  font-style: italic;
-  font-weight: 900;
-}
-.quote{
-  align-items: center;
-  border-radius: 10px;
-}
-.quote h4{
-  color: #fff;
-  padding: 5px 10px;
-}
-.quote img{
-  height: 150px;
-  width: 120;
-}
-.student-data{
-  border: #2c3443 2px solid;
-  border-radius: 10px;
-}
-.student-data h2{
-  color: #212731;
-  font-weight: 900;
-}
-.student-data .data{
-  display: flex;
-  align-items: center;
-  padding: 5px 0px;
-}
-.student-data .data h3{
-  font-weight: 700;
-  color: #2c3544;
-}
-.student-data .data h4{
-  color: var(--text-color);
-  padding-right: 5px;
-}
-/*end child account */
 /* start admin dashboard */
 .admin-heading h1{
   background-color: #f7f7f7;
@@ -900,17 +820,111 @@ footer .qtouf{
   color: var(--text-color);
   font-size: 20px;
 }
-
+/*end qtouf page*/
+/* start login-student page */
+.loginstudent{
+  height: 75vh;
+}
+.login-studet{
+  box-shadow: 10px 10px 15px #9a9a9a;
+  background-color:#f7f7f7;
+}
+.login-studet h2{
+  text-align: center;
+  color: var(--orange-color);
+  font-weight: 600;
+}
+.login-studet label{
+  color: var(--text-color);
+  font-weight: 600;
+  width: 100%;
+  padding: 10px 5px 10px 0px;
+}
+.login-studet input{
+  width: 100%;
+  border: solid 2px #2c2221;
+  border-radius: 3px;
+  padding: 5px;  
+}
+.login-studet button{
+  background-color: var(--orange-color) !important;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.3s;
+  margin: 25px 0;
+}
+.login-studet button:hover{
+  color: #fff;
+  background-color: #c64d08 !important;
+  transform: scale(1.1);
+}
+/* end login-student page */
+/* start login-admin page */
+.loginadmin{
+  height: 75vh;
+}
+.login-admin{
+  box-shadow: 10px 10px 15px #9a9a9a;
+  background-color:#f7f7f7;
+}
+.login-admin h2{
+  text-align: center;
+  color: var(--light-green);
+  font-weight: 600;
+}
+.login-admin label{
+  color: var(--text-color);
+  font-weight: 600;
+  width: 100%;
+  padding: 10px 5px 10px 0px;
+}
+.login-admin input{
+  width: 100%;
+  border: solid 2px #2c2221;
+  border-radius: 3px;
+  padding: 5px;  
+}
+.login-admin button{
+  background-color: var(--light-green) !important;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.3s;
+  margin: 25px 0;
+}
+.login-admin button:hover{
+  color: #fff;
+  background-color: #02a990 !important;
+  transform: scale(1.1);
+}
+/* end login-admin page */
 @media only screen and (max-width: 576px){
-  .color-box h5{
-    font-size: 0.7rem;
-  }
-  .color-box{
-    width: 12vmin;
-  }
   .feature p{
     font-size: 17px;
   }
+  .color-box h5{
+    font-size: 0.9rem;
+  }
+  .program-heading h1,
+  .require-heading h1,
+  .qtouf-heading h1,
+  .zad-heading h1{
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 768px){
+  .header-boxs{
+    flex-direction: column;
+  }
+  .second-box{
+    width: 100%;
+  }
+  .color-box{
+    width: 20vmin;
+  }
+  .top-box{
+    margin-bottom: 25px;
+  }
+ 
 }
 @media only screen and (max-width: 992px){
   footer .zad {
@@ -919,9 +933,17 @@ footer .qtouf{
   footer .qtouf{
     width: 80%;
   }
+  .border-bink,
+ .border-green,
+ .border-lightgreen,
+ .border-orange{
+  border: none;
+ }
+
 }
 .notfound{
   font-size: 40px;
   background-color: #c1c6c2;
   color: rgb(197, 6, 6);
 }
+ 
