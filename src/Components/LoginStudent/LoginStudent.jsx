@@ -17,7 +17,7 @@ export default function LoginStudent() {
           </div>
           <div>
           <label htmlFor="">كلمة المرور</label>
-          <input type="text" placeholder='كلمة المرور' />
+          <input type="password" placeholder='كلمة المرور' />
           </div>
           <button className="btn" type='submit'>تسجيل الدخول</button>
         </form>

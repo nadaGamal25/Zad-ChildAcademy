@@ -248,9 +248,11 @@ footer .qtouf{
 }
 .header-boxs{
   position: absolute;
-  width: 100%;
+  width: 90%;
   bottom:-8% ;
-  justify-content: space-around;
+  left: 5%;
+  margin: auto;
+  justify-content: space-between;
 
 }
 .second-box{
@@ -260,7 +262,7 @@ footer .qtouf{
 }
 .grey-box{
   position: relative;
-  background-color: #c1c6c2;
+  /* background-color: #c1c6c2; */
   margin: auto;
   border-radius: 10px;
 
@@ -268,14 +270,15 @@ footer .qtouf{
 .color-box{
   position: relative;
   transform: translateY(-4px) translateX(-3px);
-  border-radius: 10px;
+  /* border-radius: 12px; */
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 15vmin;
+  width: 17vmin;
   height: 80px;
+  box-shadow:4px 5px 0px #9a9a9a;
 }
 .color-box h5{
   font-weight: 600;
@@ -912,7 +915,7 @@ footer .qtouf{
   }
 }
 @media only screen and (max-width: 768px){
-  .header-boxs{
+  /* .header-boxs{
     flex-direction: column;
   }
   .second-box{
@@ -923,7 +926,7 @@ footer .qtouf{
   }
   .top-box{
     margin-bottom: 25px;
-  }
+  } */
  
 }
 @media only screen and (max-width: 992px){

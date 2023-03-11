@@ -9,11 +9,11 @@ export default function LoginAdmin() {
             <form action="">
               <div>
               <label htmlFor="">اسم المستخدم</label>
-              <input type="text" placeholder=' اسم المستخدم' value="lolo"/>
+              <input type="text" placeholder=' اسم المستخدم'/>
               </div>
               <div>
               <label htmlFor="">كلمة المرور</label>
-              <input type="text" placeholder='كلمة المرور' />
+              <input type="password" placeholder='كلمة المرور' />
               </div>
               <button className="btn" type='submit'>تسجيل الدخول</button>
             </form>
