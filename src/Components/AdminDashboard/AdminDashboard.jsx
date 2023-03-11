@@ -5,7 +5,7 @@ import TheFormRegister from '../TheFormRegister/TheFormRegister';
 
 export default function AdminDashboard() {
   const [search, setSearch]= useState('')
-  console.log(search);
+  // console.log(search);
   const [studentData , setStudentData]= useState([]);
   const [visible, setVisible] =useState(10);
 
@@ -13,10 +13,28 @@ export default function AdminDashboard() {
     setVisible((prevValue) => prevValue + 10);
   }
 
+  const headers = {
+    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+  }
   async function getStudentData(){
-    let {data} =await axios.get(`https://zadkinder-production.up.railway.app/admin/students/0`);
-    console.log(data.data);
-    setStudentData(data.data);
+    // let {data} =await axios.get(`https://zadkinder-production.up.railway.app/admin/students/0`);
+    // console.log(data.data);
+    // setStudentData(data.data);
+    try {
+     
+      const { data } = await axios.get(
+        `https://zadkinder-production.up.railway.app/admin/students/0`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        }
+      );
+      console.log(data.data);
+      setStudentData(data.data);
+    } catch (error) {
+      console.error(error);
+    }
   }
   useEffect(() => {
     getStudentData(10);
@@ -130,7 +148,7 @@ export default function AdminDashboard() {
         <div className="student-register p-4 my-3 register-container"> 
         <h2><i class="fa-solid ps-2 fa-user"></i>اضافة طالب جديد :</h2>
         <TheFormRegister/>
-        </div>    
+        </div> 
     </div>
     </>
   )
