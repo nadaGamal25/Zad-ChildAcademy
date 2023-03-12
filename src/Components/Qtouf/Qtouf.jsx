@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import { Link } from 'react-router-dom'
+import LoadingPage from '../LoadingPage';
 
 export default function Qtouf() {
   const [showSection, setShowSection] = useState(false);
@@ -7,8 +8,21 @@ export default function Qtouf() {
   useEffect(() => {
     setShowSection(true);
   }, []);
+  const [loading, setLoading] = useState(true); // set initial value to true
+  const timeoutId= useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
   return (
     <>
+    {loading ? (
+        <LoadingPage />
+      ) : (
     <div className="container py-5 qtoufAcademy">
       <div className={`sectionToUp ${showSection ? 'fade-in-from-bottom' : ''}`}>
     <div className="qtouf-heading d-flex align-items-center justify-content-center">
@@ -26,6 +40,7 @@ export default function Qtouf() {
         </div>
         </div>
     </div>
+      )}
     </>
   )
 }

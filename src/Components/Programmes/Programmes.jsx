@@ -4,6 +4,7 @@ import img1 from '../../assets/img1.png'
 import img2 from '../../assets/img2.png'
 import img3 from '../../assets/img3.png'
 import img4 from '../../assets/img4.png'
+import LoadingPage from '../LoadingPage'
 
 export default function Programmes() {
     const [showSection, setShowSection] = useState(false);
@@ -11,10 +12,23 @@ export default function Programmes() {
     useEffect(() => {
       setShowSection(true);
     }, []);
+    const [loading, setLoading] = useState(true); 
+    const timeoutId= useEffect(() => {
+      setTimeout(() => {
+        setLoading(false);
+      }, 3000);
+  
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }, []);
   
     
   return (
     <>
+    {loading ? (
+        <LoadingPage />
+      ) : (
     <div className="container py-5 ">
         <div className={`sectionToUp ${showSection ? 'fade-in-from-bottom' : ''}`}>
     <div className="program-heading d-flex align-items-center justify-content-center">
@@ -120,6 +134,7 @@ export default function Programmes() {
         </div>
         </div>
     </div>
+      )}
     </>
   )
 }

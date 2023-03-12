@@ -6,8 +6,10 @@ import ImgAlbum from './ImgAlbum'
 export default function MainPage() {
   return (
     <>
-    <Header/>
-    <Features/>
+       <Header/>
+       <Features/>
+  
+    
     </>
   )
 }

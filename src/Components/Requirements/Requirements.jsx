@@ -1,4 +1,5 @@
 import React,{useEffect,useState} from 'react'
+import LoadingPage from '../LoadingPage';
 
 export default function Requirements() {
   const [showSection, setShowSection] = useState(false);
@@ -6,8 +7,21 @@ export default function Requirements() {
     useEffect(() => {
       setShowSection(true);
     }, []);
+    const [loading, setLoading] = useState(true); 
+    const timeoutId= useEffect(() => {
+      setTimeout(() => {
+        setLoading(false);
+      }, 3000);
+  
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }, []);
   return (
     <>
+    {loading ? (
+        <LoadingPage />
+      ) : (
     <div className=" container py-5 require">
       <div className={`sectionToUp ${showSection ? 'fade-in-from-bottom' : ''}`}>
     <div className=" require-heading pt-5 d-flex align-items-center justify-content-center">
@@ -37,6 +51,7 @@ export default function Requirements() {
         </div>
         </div>
     </div>
+      )}
     </>
   )
 }

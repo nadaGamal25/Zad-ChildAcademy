@@ -15,10 +15,22 @@ import LoginStudent from './Components/LoginStudent/LoginStudent';
 import LoginAdmin from './Components/LoginAdmin/LoginAdmin';
 import Logout from './Components/LoginAdmin/Logout ';
 import { useState } from 'react';
+import { useEffect } from 'react';
+import LoadingPage from './Components/LoadingPage';
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
+  const [loading, setLoading] = useState(true); // set initial value to true
+  const timeoutId= useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 4000);
 
-
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
+  
+ 
   let routers =createBrowserRouter([
     {path:'/',element:<Layout/> ,children:[
       {index:true,element:<ErrorBoundary><MainPage/></ErrorBoundary> },
@@ -45,8 +57,13 @@ function App() {
   ])
   return (
     <>
-    <RouterProvider  router={routers}/> 
-
+    <div>
+      {loading ? (
+        <LoadingPage />
+      ) : (
+        <RouterProvider router={routers} />
+      )}
+    </div>
     </>
   );
 }

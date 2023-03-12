@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import { Link } from 'react-router-dom'
+import LoadingPage from '../LoadingPage';
 
 export default function Zad() {
   const [showSection, setShowSection] = useState(false);
@@ -7,8 +8,21 @@ export default function Zad() {
     useEffect(() => {
       setShowSection(true);
     }, []);
+    const [loading, setLoading] = useState(true); 
+    const timeoutId= useEffect(() => {
+      setTimeout(() => {
+        setLoading(false);
+      }, 3000);
+  
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }, []);
   return (
     <>
+    {loading ? (
+        <LoadingPage />
+      ) : (
     <div className="container py-5 zadAcademy">
       <div className={`sectionToUp ${showSection ? 'fade-in-from-bottom' : ''}`}>
     <div className="zad-heading d-flex align-items-center justify-content-center">
@@ -33,6 +47,7 @@ export default function Zad() {
         </div>
         </div>
     </div>
+      )}
     </>
   )
 }
