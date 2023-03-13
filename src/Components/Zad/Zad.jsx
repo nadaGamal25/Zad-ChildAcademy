@@ -43,6 +43,27 @@ export default function Zad() {
             <li><i class="fa-solid fa-bolt"></i> يوجد أيضا مكان مخصص لتناول الوجبة بكل أريحية </li>
             <li><i class="fa-solid fa-bolt"></i> تقام بشكل دوري أنشطة متنوعة وهادفة للطفل</li>
             </ul>
+            <div className='row py-4 g-4'>
+              <div className="col-md-3">
+                  <div className="pnumber">
+                  <i class="fa-solid fa-phone"></i>
+                  <h5>0502357555</h5>
+                  </div>
+                </div>
+                <div className="col-md-3">
+                  <div className="snap">
+                  <i class="fa-brands fa-snapchat"></i>
+                  <h5>أكاديمية زاد الطفل</h5>
+                  </div>
+                </div>
+                <div className="col-md-3">
+                  <div className="location">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <h5>خميس مشيط - حي الرصراص
+مقابل مسجد الفالح</h5>
+                  </div>
+                </div>
+            </div>
             <Link to="/register" className="btn zad-btn">التسجيل الان</Link>
         </div>
         </div>

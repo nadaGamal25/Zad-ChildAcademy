@@ -35,7 +35,28 @@ export default function Qtouf() {
         <div >
             <h3>عن الروضة :</h3>
             <p>سنوات متواصلة من التميز والإبداع تهدف إلى تنمية مهارات الطفل وتعزيز السلوك بما يتماشى مع تعاليم الدين الإسلامي من خلال الوحدات التعليمية واللغة الإنجليزية والقاعدة النورانية والحساب الذهني تحت إشراف كادر تعليمي ذو خبرة .</p>
-           
+            <div className='row py-4 g-4'>
+              <div className="col-md-3">
+                  <div className="pnumber">
+                  <i class="fa-solid fa-phone"></i>
+                  <h5>0507802302</h5>
+                  </div>
+                </div>
+                <div className="col-md-3">
+                  <div className="snap">
+                  <i class="fa-brands fa-snapchat"></i>
+                  <h5>أكاديمية قطوف الطفل 2</h5>
+                  </div>
+                </div>
+                <div className="col-md-3">
+                  <div className="location">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <h5>خميس مشيط - طريق المدينة
+العسكرية - خلف مطاعم السده</h5>
+                  </div>
+                </div>
+            </div>
+
             <Link to="/register" className="btn qtouf-btn">التسجيل الان</Link>
         </div>
         </div>

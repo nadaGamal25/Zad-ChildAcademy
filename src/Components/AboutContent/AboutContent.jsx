@@ -49,7 +49,7 @@ export default function AboutContent() {
         <h3>أكاديمية تربوية تعليمية ذات مناهج خاصة هدفنا التميز والإنفراد بالعطاء التربوي والإستثمار فى مجال الطفولة المبكرة التي ستقود الغد</h3>
         <ul>
         <li><i class="fa-solid fa-check"></i> خبرة فى مجال الطفولة المبكرة .</li>
-        <li><i class="fa-solid fa-check"></i> برامج تعليمية عالمية مميزة ومنتقاة زاد الطفل .</li>
+        <li><i class="fa-solid fa-check"></i> برامج تعليمية عالمية مميزة تفيد الطفل وتزيد من مستواه التعليمي.</li>
         <li><i class="fa-solid fa-check"></i> كادر تعليمي ذو خبرات علمية وتعليمية .</li>
         <li><i class="fa-solid fa-check"></i> إشراف فني فى مجال الطفولة المبكرة .</li>
         <li><i class="fa-solid fa-check"></i> كادر إداري ذو خبرة في النواحي الإدارية .</li>
@@ -74,6 +74,13 @@ export default function AboutContent() {
       </div>
       </div>
       
+      </div>
+      <div className="row section">
+        <div className="col-md-7 m-auto">
+          <div className="phone-suggetion">
+            <h4><i class="fa-solid fa-phone-volume"></i>رقم جوال الإدارة (للشكاوي والمقترحات):<span>0537044097</span></h4>
+          </div>
+        </div>
       </div>
   </div></>
   )

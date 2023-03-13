@@ -111,6 +111,46 @@ a{
      transform: rotate(360deg);
   }
 }
+.pnumber,
+.snap,
+.location{
+text-align: center;
+}
+.pnumber h5,
+.snap h5,
+.location h5{
+  font-weight: 600;
+}
+.pnumber i,
+.snap i,
+.location i{
+  color:#fff !important;
+  font-size: 19px !important;
+  padding: 12px;
+  border-radius: 50%;
+  margin: 10px 0;
+  transition: all 0.3s;
+  animation: movingrotate 1s alternate infinite;
+}
+.pnumber i{
+  background-color: #28af2f;
+}
+.snap i{
+  background-color: #fffc00;
+  font-weight: 900;
+}
+.location i{
+  background-color: var(--light-green);
+}
+.qtoufAcademy .location i{
+  background-color: var(--orange-color) !important;
+}
+@keyframes movingrotate{
+ 0%{transform: rotateY(0deg);
+ }
+ 100%{transform: rotateY(360deg);
+ }
+}
 /* start navbar */
 .colors{
   width: 100%;
@@ -125,6 +165,12 @@ a{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.nav-item img{
+  width: 50px;
+}
+.nav-item .sm{
+  width: 47px !important;
 }
 .nav-item a{
   font-size: 17px;
@@ -256,7 +302,7 @@ footer{
   align-self: center;
 }
 footer .zad{
-  padding: 5px;
+  padding: 2px 5px;
   text-align: center;
   border: dashed 2px var(--light-green);
   color: #fff;
@@ -280,9 +326,23 @@ footer .qtouf i{
 }
 footer .qtouf{
   width: 60%;
-  padding: 5px;
+  padding: 2px 5px;
   text-align: center;
   border: dashed 2px var(--green-color);
+  color: #fff;
+
+}
+footer .suggestions i{
+  background-color: var(--orange-color);
+  padding: 5px 6px;
+  border-radius: 5px;
+
+}
+footer .suggestions{
+  width: 60%;
+  padding: 2px 5px;
+  text-align: center;
+  border: dashed 2px var(--orange-color);
   color: #fff;
 
 }
@@ -353,8 +413,12 @@ footer .qtouf{
   /* animation-duration: 2s;
   animation-name: slidein; */
 }
-
-.feature i{
+.feature img{
+  width: 92px;
+  transition: all 0.3s;
+  margin-left: 10px;
+}
+/* .feature i{
   font-size: 40px;
   color: #fff;
   padding: 15px;
@@ -364,8 +428,8 @@ footer .qtouf{
   text-align: center;
   margin-left: 10px;
   transition: all 0.3s;
-}
-.feature i:hover{
+} */
+.feature img:hover{
   transform: rotateY(180deg);
 }
 .feature p{
@@ -796,7 +860,7 @@ footer .qtouf{
   font-size: 18px;
 }
 .about-card:hover{
-  transform: scale(1.1);
+  transform: scale(1.06);
   background-color: #67E4D0;
 }
 .about-card:hover i{
@@ -809,7 +873,37 @@ footer .qtouf{
 .about-card:hover p{
   color: #EAFBF8;
 }
-
+.about .phone-suggetion{
+  border-radius: 10px;
+  background-color: #EAFBF8;
+  text-align: center;
+  padding:30px 5px;
+  margin: 50px 0px 15px 0px;
+  transition: all 0.3s;
+}
+.about .phone-suggetion i{
+  color: #fff;
+  background-color: var(--light-green);
+  font-size: 18px;
+  padding: 6px;
+  border-radius: 4px;
+  margin-left: 5px;
+}
+.about .phone-suggetion span{
+  font-weight: 600;
+  padding-right: 3px;
+}
+.phone-suggetion:hover{
+  transform: scale(1.05);
+  background-color: #67E4D0;
+}
+.phone-suggetion:hover h4{
+  color: #EAFBF8;
+}
+.phone-suggetion:hover i{
+  background-color: #EAFBF8;
+  color: #67E4D0;
+}
 /* end about page */
 /* start zad page */
 .zad-heading h1{
@@ -986,6 +1080,10 @@ footer .qtouf{
   }
   footer .qtouf{
     width: 80%;
+  }
+  footer .suggestions{
+    width: 80%;
+
   }
   .border-bink,
  .border-green,

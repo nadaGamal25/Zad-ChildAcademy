@@ -12,15 +12,19 @@ export default function Footer() {
         <div className="col-md-6 footer-info pt-2">
           <div className="zad m-auto">
             <h3>أكاديمية زاد الطفل</h3>
-            <h2> 0555555555<i class="fa-solid fa-phone-volume"></i></h2>
+            <h3> 0502357555<i class="fa-solid fa-phone-volume"></i></h3>
             <h5><i class="fa-solid fa-location-dot"></i> خميس مشيط - حي الرصراص
 مقابل مسجد الفالح</h5> 
           </div>
           <div className="qtouf m-auto my-2">
           <h3>أكاديمية قطوف الطفل</h3>
-            <h2> 0507802302<i class="fa-solid fa-phone-volume"></i></h2>
+            <h3> 0507802302<i class="fa-solid fa-phone-volume"></i></h3>
             <h5><i class="fa-solid fa-location-dot"></i> خميس مشيط - طريق المدينة
 العسكرية - خلف مطاعم السده</h5>
+          </div>
+          <div className="suggestions m-auto">
+            <h5>للشكاوى والمقترحات :</h5>
+            <h4> 0537044097<i class="fa-solid fa-phone-volume"></i></h4>
           </div>
         </div>
         <div className="col-md-6">

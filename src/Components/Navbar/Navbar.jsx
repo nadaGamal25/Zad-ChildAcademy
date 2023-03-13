@@ -1,7 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/logo.png'
-
+import logo1 from '../../assets/1.png'
+import logo2 from '../../assets/2.png'
+import logo3 from '../../assets/3.png'
+import logo4 from '../../assets/4.png'
+import logo5 from '../../assets/5.png'
+import logo6 from '../../assets/6.png'
+import logo7 from '../../assets/7.png'
 export default function Navbar() {
   return (
     <>
@@ -15,11 +21,11 @@ export default function Navbar() {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0" dir='rtl'>
       <li class="nav-item bg-light-green">
-        <i class="fa-solid fa-house-chimney"></i>
+        <img className='sm' src={logo1} alt="logo" />
           <Link class="nav-link" to="about">من نحن</Link>
         </li>
       <li class="nav-item dropdown bg-bink">
-          <i class="fa-solid fa-list-ul"></i>
+      <img className='sm' src={logo2} alt="logo" />
           <a class="nav-link border-bink" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           روضاتنا      
           </a>
@@ -30,12 +36,12 @@ export default function Navbar() {
         </li>
         
         <li class="nav-item bg-orange">
-        <i class="fa-solid fa-book"></i>
+        <img src={logo3} alt="logo" />
           <Link class="nav-link border-orange" to="programmes">البرامج والرسوم المدرسية</Link>
         </li>
         
           <li class="nav-item dropdown bg-green">
-          <i class="fa-solid fa-file-pen"></i>
+          <img src={logo4} alt="logo" />
           <a class="nav-link border-green" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           التسجيل      
           </a>
@@ -45,12 +51,12 @@ export default function Navbar() {
           </ul>
         </li>
         <li class="nav-item bg-orange">
-        <i class="fa-solid fa-book-open"></i>
+        <img src={logo5} alt="logo" />
           <Link class="nav-link border-orange" to="loginStudent">حساب الطفل</Link>
         </li>
        
           <li class="nav-item dropdown bg-light-green">
-          <i class="fa-solid fa-briefcase"></i>
+          <img src={logo6} alt="logo" />
           <a class="nav-link border-lightgreen" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           إنضم إلينا      
           </a>
@@ -60,7 +66,7 @@ export default function Navbar() {
           </ul>
         </li>
         <li class="nav-item bg-bink ">
-        <i class="fa-regular ii fa-comments"></i>
+        <img src={logo7} alt="logo" />
           <Link class="nav-link border-bink" href="#">تواصل معنا</Link>
         </li>
         

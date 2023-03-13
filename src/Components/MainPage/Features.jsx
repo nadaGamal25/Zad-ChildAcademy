@@ -1,4 +1,12 @@
 import React,{useEffect,useState} from 'react'
+import img1  from '../../assets/8.png'
+import img2  from '../../assets/9.png'
+import img3  from '../../assets/10.png'
+import img4  from '../../assets/11.png'
+import img5  from '../../assets/12.png'
+import img6  from '../../assets/13.png'
+import img7  from '../../assets/14.png'
+import img8  from '../../assets/15.png'
 
 export default function Features() {
     const [isVisible, setIsVisible] = useState(false);
@@ -42,7 +50,7 @@ export default function Features() {
             <div className="features row pt-4">
                 <div className="col-md-6 section">
                     <div className="feature d-flex bg-orange">
-                    <span><i class="fa-solid fa-book"></i></span>
+                    <span><img src={img1} alt="img" /></span>
                         <div className="feature-caption">
                             <h2>مناهج دراسية مميزة</h2>
                             <p>تم اختيارها بكل عناية لتناسب أطفالكم حسب أعمارهم.</p>
@@ -52,7 +60,7 @@ export default function Features() {
                 </div>
                 <div className="col-md-6 section">
                     <div className="feature d-flex bg-light-green">
-                    <span><i class="fa-solid fa-book-open"></i></span>
+                    <span><img src={img2} alt="img" /></span>
                         <div className="feature-caption">
                             <h2>برامج صباحية ومسائية</h2>
                             <p>
@@ -63,7 +71,7 @@ export default function Features() {
                 </div>
                 <div className="col-md-6 section">
                     <div className="feature d-flex bg-bink">
-                    <span><i class="fa-solid fa-person-arrow-up-from-line"></i></span>
+                    <span><img src={img3} alt="img" /></span>
                         <div className="feature-caption">
                             <h2>دروس تقوية</h2>
                             <p>وفرنا لكم دروس تقوية بالأكاديمية لأننا نحرص على زيادة المستوى التعليمي لطفلك.</p>
@@ -72,7 +80,7 @@ export default function Features() {
                 </div>
                 <div className="col-md-6 section">
                     <div className="feature d-flex bg-voilet">
-                    <span><i class="fa-solid fa-child-reaching"></i></span>
+                    <span><img src={img4} alt="img" /></span>
                         <div className="feature-caption">
                             <h2>حضانة للطفل بالساعة</h2>
                             <p>متوفر لدينا بالأكاديمية حضانة للطفل بالساعة واليوم والشهر والتيرم .</p>
@@ -81,7 +89,7 @@ export default function Features() {
                 </div>
                 <div className="col-md-6 section">
                     <div className="feature d-flex bg-green">
-                    <span><i class="fa-solid fa-graduation-cap"></i></span>
+                    <span><img src={img5} alt="img" /></span>
                         <div className="feature-caption">
                             <h2>معلمات ذوات كفاءة</h2>
                             <p>نختار معلماتنا بعناية ذوات مؤهلات علمية وكفاءة عالية .</p>
@@ -90,7 +98,7 @@ export default function Features() {
                 </div>
                 <div className="col-md-6 section">
                     <div className="feature d-flex bg-orange">
-                    <span><i class="fa-regular fa-comments"></i></span>
+                    <span><img src={img6} alt="img" /></span>
                         <div className="feature-caption">
                             <h2>الاستشارات والتواصل</h2>
                             <p>نجيب عن الأسئلة التي تتبادر إلى ذهنك بخصوص طفلك ونرشدك لما هو أفضل له .</p>
@@ -99,7 +107,7 @@ export default function Features() {
                 </div>
                 <div className="col-md-6 section">
                     <div className="feature d-flex bg-voilet">
-                    <span><i class="fa-solid fa-bus"></i></span>
+                    <span><img src={img7} alt="img" /></span>
                         <div className="feature-caption">
                             <h2>النقل</h2>
                             <p>حرصا منا على راحتكم ..نؤمن لكم حافلات مريحةوآمنة لنقل أطفالكم من وإلى الروضة.</p>
@@ -108,7 +116,7 @@ export default function Features() {
                 </div>
                 <div className="col-md-6 section">
                     <div className="feature d-flex bg-bink">
-                    <span><i class="fa-solid fa-desktop"></i></span>
+                    <span><img src={img8} alt="img" /></span>
                         <div className="feature-caption">
                             <h2>التسجيل الإلكتروني</h2>
                             <p>يمكنك تسجيل طفلك إلكترونياوسداد الرسوم عبر التحويل البنكي وأنت في مكانك .</p>

@@ -125,7 +125,7 @@ export default function TheFormRegister() {
                     <input type="text" name='address' onChange={getStudentData}/>
                 </div>
                 <div className="col-md-6">
-                <label htmlFor="">الإشتراك في البا ص (برسوم إضافية)</label>
+                <label htmlFor="">الإشتراك في الباص (برسوم إضافية)</label>
                 <select className='w-100' name='bus' onChange={getStudentData}>
                  <option>الإشتراك في الباص (برسوم إضافية)</option>
                  <option>ذهاب و عودة (١٠٠٠ر.س)</option>
