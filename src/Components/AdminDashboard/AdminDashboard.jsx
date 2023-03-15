@@ -17,9 +17,6 @@ export default function AdminDashboard() {
     'Authorization': `Bearer ${localStorage.getItem('token')}`,
   }
   async function getStudentData(){
-    // let {data} =await axios.get(`https://zadkinder-production.up.railway.app/admin/students/0`);
-    // console.log(data.data);
-    // setStudentData(data.data);
     try {
      
       const { data } = await axios.get(
@@ -39,6 +36,17 @@ export default function AdminDashboard() {
   useEffect(() => {
     getStudentData(10);
   }, []);
+  useEffect(() => {
+    // Count the number of objects with kinder equal to 'زاد الطفل'
+    const zadCount = studentData.filter((obj) => obj.kinder === 'زاد الطفل').length;
+
+    // Count the number of objects with kinder equal to 'قطوف الطفل'
+    const qtoufCount = studentData.filter((obj) => obj.kinder === 'قطوف الطفل').length;
+
+    
+    document.querySelector('.zad-students').textContent = zadCount;
+    document.querySelector('.qtouf-students').textContent = qtoufCount;
+  }, [studentData]);
 
   return (
     <>
@@ -47,42 +55,51 @@ export default function AdminDashboard() {
             <h1>لوحة التحكم</h1>
         </div>
         <div className="row py-5 g-4">
-            <div className="col-md-6 col-sm-6 col-lg-3 ">
+            <div className="col-md-6 col-sm-6 col-lg-4 ">
                 <div className="sm-card text-center card1 h-100">
                 <i class="fa-solid fa-graduation-cap"></i>
+                <h3 className='pb-3'>إجمالى الطلاب</h3>
                 <div className="d-flex pe-3">
                   <h4>زاد الطفل:</h4>
-                  <h4 className='pt-1'>%</h4>    
+                  <h4 className='zad-students pt-1'></h4>    
                 </div>
                 <div className="d-flex pe-3">
                 <h4>قطوف الطفل:</h4>
-                <h4 className='pt-1'>%</h4>    
+                <h4 className='qtouf-students pt-1'></h4>    
                 </div>
                 </div>
             </div>
-            <div className="col-md-6 col-sm-6 col-lg-3">
+            <div className="col-md-6 col-sm-6 col-lg-4">
                 <div className="sm-card bg-bink text-center card2 h-100">
                 <i class="fa-solid fa-person-chalkboard"></i>
-                <h3>إجمالى المعلمات</h3>
-                <span> % </span>
+                <h3 className='pb-3'>إجمالى المعلمات</h3>
+                <div className="d-flex pe-3">
+                  <h4>زاد الطفل:</h4>
+                  <h4 className='zad-teachers pt-1'></h4>    
+                </div>
+                <div className="d-flex pe-3">
+                <h4>قطوف الطفل:</h4>
+                <h4 className='qtouf-teachers pt-1'></h4>    
+                </div>
                 </div>
             </div>
-            <div className="col-md-6 col-sm-6 col-lg-3">
+            <div className="col-md-6 col-sm-6 col-lg-4">
                 <div className="sm-card bg-orange text-center card3 h-100">
                 <i class="fa-solid fa-book-open-reader"></i>
-                <h3>إجمالى المواد الدراسية</h3>
-                <span> % </span>
+                <h3 className='pb-3'>إجمالى المتطوعات </h3>
+                <div className="d-flex pe-3">
+                  <h4>زاد الطفل:</h4>
+                  <h4 className='zad-volunteers pt-1'></h4>    
+                </div>
+                <div className="d-flex pe-3">
+                <h4>قطوف الطفل:</h4>
+                <h4 className='qtouf-volunteers pt-1'></h4>    
+                </div>
                 </div>
             </div>
-            <div className="col-md-6 col-sm-6 col-lg-3">
-                <div className="sm-card bg-green text-center card4 h-100">
-                <i class="fa-brands fa-buromobelexperte"></i>
-                <h3>إجمالى الفصول</h3>
-                <span> % </span>
-                </div>
+            
             </div>
-            </div>
-        <div className="students p-4">
+            <div className="students p-4">
           <div className="row g-2">
             <div className="col-md-6">
             <h3><i class="fa-solid fa-user-graduate ps-2"></i>قائمة الطلاب </h3>
@@ -153,4 +170,16 @@ export default function AdminDashboard() {
     </>
   )
 }
+ /*
  
+
+          
+  .....
+  <div className="col-md-6 col-sm-6 col-lg-3">
+                <div className="sm-card bg-green text-center card4 h-100">
+                <i class="fa-brands fa-buromobelexperte"></i>
+                <h3>إجمالى الفصول</h3>
+                <span> % </span>
+                </div>
+            </div>
+        */
