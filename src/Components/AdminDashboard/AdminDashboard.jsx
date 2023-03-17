@@ -182,7 +182,30 @@ export default function AdminDashboard() {
       <td>{item.address}</td>
       <td>{item.bus}</td>
       <td><button className='edit-btn btn btn-primary' onClick={() => handleEditClick(item)}>تعديل الطالب</button></td>
-      <td><button className='delete-btn btn btn-danger' onClick={() => removeStudent(item._id)}>مسح الطالب</button></td>
+      {/* <td><button className='delete-btn btn btn-danger' onClick={() => removeStudent(item._id)}>مسح الطالب</button></td> */}
+      <td><button
+            className="btn btn-danger"
+            onClick={() => {
+              if (window.confirm('هل انت بالتأكيد تريد مسح هذا الطالب ؟')) {
+                axios
+                  .get(`https://zadkinder-production.up.railway.app/admin/remove-student/${item._id}`, {
+                    headers: {
+                      Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
+                  })
+                  .then((response) => {
+                    if (response.data.msg === 'ok') {
+                      getStudentData();
+                    }
+                  })
+                  .catch((error) => {
+                    console.error(error);
+                  });
+              }
+            }}
+          >
+            مسح الطالب
+          </button></td>
     </tr>
       )
     })}
