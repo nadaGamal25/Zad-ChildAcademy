@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import TheFormRegister from '../TheFormRegister/TheFormRegister';
+import EditStudentModal from '../EditStudentModal/EditStudentModal';
 
 export default function AdminDashboard() {
   const [search, setSearch]= useState('')
@@ -12,10 +13,40 @@ export default function AdminDashboard() {
   const showMoreStudents =()=>{
     setVisible((prevValue) => prevValue + 10);
   }
+  useEffect(() => {
+    // Count the number of objects with kinder equal to 'زاد الطفل'
+    const zadCount = studentData.filter((obj) => obj.kinder === 'زاد الطفل').length;
 
-  const headers = {
-    'Authorization': `Bearer ${localStorage.getItem('token')}`,
-  }
+    // Count the number of objects with kinder equal to 'قطوف الطفل'
+    const qtoufCount = studentData.filter((obj) => obj.kinder === 'قطوف الطفل').length;
+
+    
+    document.querySelector('.zad-students').textContent = zadCount;
+    document.querySelector('.qtouf-students').textContent = qtoufCount;
+  }, [studentData]);
+
+  const removeStudent = async (id) => {
+    try {
+      const response = await axios.get(
+        `https://zadkinder-production.up.railway.app/admin/remove-student/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        }
+      );
+        console.log(response.data.msg);
+      // Update the studentData state by removing the deleted student
+      setStudentData(studentData.filter((student) => student._id !== id));
+        // If the student was successfully removed, update the student data
+        // getStudentData(10);
+      
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+
   async function getStudentData(){
     try {
      
@@ -36,18 +67,16 @@ export default function AdminDashboard() {
   useEffect(() => {
     getStudentData(10);
   }, []);
-  useEffect(() => {
-    // Count the number of objects with kinder equal to 'زاد الطفل'
-    const zadCount = studentData.filter((obj) => obj.kinder === 'زاد الطفل').length;
-
-    // Count the number of objects with kinder equal to 'قطوف الطفل'
-    const qtoufCount = studentData.filter((obj) => obj.kinder === 'قطوف الطفل').length;
-
-    
-    document.querySelector('.zad-students').textContent = zadCount;
-    document.querySelector('.qtouf-students').textContent = qtoufCount;
-  }, [studentData]);
-
+   
+  const [editModalOpen, setEditModalOpen] = useState(false);
+  const [editedStudent, setEditedStudent] = useState(null);
+  const handleEditClick = (student) => {
+    setEditModalOpen(true);
+    setEditedStudent(student);
+    console.log("yes")
+  }
+  
+  
   return (
     <>
     <div className="p-5">
@@ -99,6 +128,7 @@ export default function AdminDashboard() {
             </div>
             
             </div>
+        
             <div className="students p-4">
           <div className="row g-2">
             <div className="col-md-6">
@@ -151,6 +181,8 @@ export default function AdminDashboard() {
       <td>{item.motherno}</td>
       <td>{item.address}</td>
       <td>{item.bus}</td>
+      <td><button className='edit-btn btn btn-primary' onClick={() => handleEditClick(item)}>تعديل الطالب</button></td>
+      <td><button className='delete-btn btn btn-danger' onClick={() => removeStudent(item._id)}>مسح الطالب</button></td>
     </tr>
       )
     })}
@@ -161,11 +193,15 @@ export default function AdminDashboard() {
             <button className="btn more-btn" onClick={showMoreStudents}>عرض المزيد</button>
             </div>
 
-            </div>   
-        <div className="student-register p-4 my-3 register-container"> 
+            </div> 
+            
+    {editModalOpen && <EditStudentModal student={editedStudent} onClose={() => setEditModalOpen(false)} />}
+  
+    <div className="student-register p-4 my-3 register-container"> 
         <h2><i class="fa-solid ps-2 fa-user"></i>اضافة طالب جديد :</h2>
         <TheFormRegister/>
         </div> 
+        
     </div>
     </>
   )
@@ -182,4 +218,5 @@ export default function AdminDashboard() {
                 <span> % </span>
                 </div>
             </div>
+
         */
