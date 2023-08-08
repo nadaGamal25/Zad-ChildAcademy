@@ -13,7 +13,7 @@ export default function EditStudentModal({ student, onClose }) {
     event.preventDefault();
     try {
       const response = await axios.post(
-        `https://zadkinder-production.up.railway.app/admin/edit-student/${student._id}`,
+        `https://zadkinder.onrender.com/admin/edit-student/${student._id}`,
         formData,
         {
           headers: {

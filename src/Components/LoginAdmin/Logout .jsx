@@ -2,7 +2,7 @@ import React from "react";
 
 const Logout = ({ setToken }) => {
   const handleLogout = async () => {
-    await fetch("https://zadkinder-production.up.railway.app/admin/login", {
+    await fetch("https://zadkinder.onrender.com/admin/login", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,

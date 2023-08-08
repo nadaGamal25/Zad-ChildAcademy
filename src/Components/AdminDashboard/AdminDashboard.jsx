@@ -28,7 +28,7 @@ export default function AdminDashboard() {
   const removeStudent = async (id) => {
     try {
       const response = await axios.get(
-        `https://zadkinder-production.up.railway.app/admin/remove-student/${id}`,
+        `https://zadkinder.onrender.com/admin/remove-student/${id}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -51,7 +51,7 @@ export default function AdminDashboard() {
     try {
      
       const { data } = await axios.get(
-        `https://zadkinder-production.up.railway.app/admin/students/0`,
+        `https://zadkinder.onrender.com/admin/students/0`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -160,6 +160,8 @@ export default function AdminDashboard() {
       <th scope="col">جوال الأم</th>
       <th scope="col">الحي</th>
       <th scope="col">اشتراك الباص</th>
+      <th></th>
+      <th></th>
     </tr>
    </thead>
   <tbody>
@@ -188,7 +190,7 @@ export default function AdminDashboard() {
             onClick={() => {
               if (window.confirm('هل انت بالتأكيد تريد مسح هذا الطالب ؟')) {
                 axios
-                  .get(`https://zadkinder-production.up.railway.app/admin/remove-student/${item._id}`, {
+                  .get(`https://zadkinder.onrender.com/admin/remove-student/${item._id}`, {
                     headers: {
                       Authorization: `Bearer ${localStorage.getItem('token')}`,
                     },

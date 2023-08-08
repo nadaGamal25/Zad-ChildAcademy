@@ -11,7 +11,8 @@ export default function LoginAdmin() {
 
     try {
       const response = await axios.post(
-        'https://zadkinder-production.up.railway.app/admin/login',
+        'https://zadkinder.onrender.com/admin/login',
+        // 'https://zadkinder-production.up.railway.app/admin/login',
         { password }
       );
 
