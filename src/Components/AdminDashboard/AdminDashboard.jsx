@@ -3,12 +3,16 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import TheFormRegister from '../TheFormRegister/TheFormRegister';
 import EditStudentModal from '../EditStudentModal/EditStudentModal';
+import Logout from '../LoginAdmin/Logout ';
+import { useNavigate } from 'react-router-dom';
 
-export default function AdminDashboard() {
+
+export default function AdminDashboard({setToken}) {
   const [search, setSearch]= useState('')
   // console.log(search);
   const [studentData , setStudentData]= useState([]);
   const [visible, setVisible] =useState(10);
+  let navigate= useNavigate(); //hoke
 
   const showMoreStudents =()=>{
     setVisible((prevValue) => prevValue + 10);
@@ -75,7 +79,21 @@ export default function AdminDashboard() {
     setEditedStudent(student);
     console.log("yes")
   }
-  
+  function logout(){
+    localStorage.removeItem("token");
+    setToken(null);
+    navigate('/loginAdmin')
+  }
+  const handleLogout = async () => {
+    await fetch("https://zadkinder.onrender.com/admin/login", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    localStorage.removeItem("token");
+    setToken(null);
+  }
   
   return (
     <>
@@ -226,7 +244,12 @@ export default function AdminDashboard() {
         <h2><i class="fa-solid ps-2 fa-user"></i>اضافة طالب جديد :</h2>
         <TheFormRegister/>
         </div> 
-        
+         
+        {/* <Logout setToken={setToken} /> */}
+        <button className="m-5 btn btn-danger text-center" onClick={logout}>
+       {/* <i class="fa-solid fa-right-from-bracket"></i> */}
+       تسجيل الخروج
+    </button>
     </div>
     </>
   )

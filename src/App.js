@@ -41,17 +41,20 @@ function App() {
       {path:'zad',element:<ErrorBoundary><Zad/></ErrorBoundary>},
       {path:'qtouf',element:<ErrorBoundary><Qtouf/></ErrorBoundary>},
       {path:'loginStudent',element:<ErrorBoundary><LoginStudent/></ErrorBoundary>},
-      {
-        path: "loginAdmin",
-        element: !token ? (
-          <ErrorBoundary><LoginAdmin setToken={setToken} /></ErrorBoundary>
-        ) : (
-          <ErrorBoundary>
-            <AdminDashboard />
-            <Logout setToken={setToken} />
-          </ErrorBoundary>
-        ),
-      },
+      {path:'adminDashboard',element:<ErrorBoundary><AdminDashboard setToken={setToken} /></ErrorBoundary>},
+      {path:'loginAdmin',element:<ErrorBoundary><LoginAdmin setToken={setToken} /></ErrorBoundary>},
+      {path:'logout',element:<ErrorBoundary><Logout setToken={setToken} token={token} /></ErrorBoundary>},
+      // {
+      //   path: "loginAdmin",
+      //   element: !token ? (
+      //     <ErrorBoundary><LoginAdmin setToken={setToken} /></ErrorBoundary>
+      //   ) : (
+      //     <ErrorBoundary>
+      //       <AdminDashboard />
+      //       <Logout setToken={setToken} />
+      //     </ErrorBoundary>
+      //   ),
+      // },
       {path:'*', element:<PageNotFound/>}
     ]}
   ])

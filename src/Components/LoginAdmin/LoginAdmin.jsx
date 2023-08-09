@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginAdmin() {
   
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  let navigate= useNavigate(); //hoke
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -20,8 +22,9 @@ export default function LoginAdmin() {
 
       // store the token in local storage
       localStorage.setItem('token', token);
+      navigate('/adminDashboard');
 
-      window.alert("تم تسجيل الدخول بنجاح ,قم بإعادة تحميل الصفحة ")
+      // window.alert("تم تسجيل الدخول بنجاح ,قم بإعادة تحميل الصفحة ")
     } catch (error) {
       console.error(error);
       window.alert("يرجى التأكد من اسم المستخدم وكلمة المرور")

@@ -3,7 +3,25 @@ import axios from 'axios';
 
 export default function EditStudentModal({ student, onClose }) {
   const [formData, setFormData] = useState(student);
-  
+  const [studentData , setStudentData]= useState([]);
+
+  async function getStudentData(){
+    try {
+     
+      const { data } = await axios.get(
+        `https://zadkinder.onrender.com/admin/students/0`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        }
+      );
+      console.log(data.data);
+      setStudentData(data.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -25,7 +43,8 @@ export default function EditStudentModal({ student, onClose }) {
       console.log(response.data.msg);
 
       onClose();
-      window.alert("تم تعديل الطالب بنجاح,قم بأعادة تحميل الصفحة")
+      window.alert("تم تعديل بيانات الطالب بنجاح,قم بأعادة تحميل الصفحة")
+      
     } catch (error) {
       console.error(error);
     }
@@ -43,7 +62,12 @@ export default function EditStudentModal({ student, onClose }) {
           </div>
           <div className="form-group">
             <label htmlFor="gender">الجنس</label>
-            <input type="text" className="form-control" id="gender" name="gender" value={formData.gender} onChange={handleInputChange} />
+            <select className="form-control" id="gender" name='gender' value={formData.gender} onChange={handleInputChange}>
+                    <option></option>
+                    <option>ذكر</option>
+                    <option>أنثى</option>
+                   </select>
+            {/* <input type="text" className="form-control" id="gender" name="gender" value={formData.gender} onChange={handleInputChange} /> */}
           </div>
           <div className="form-group">
             <label htmlFor="nationality">الجنسية</label>

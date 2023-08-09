@@ -1,6 +1,6 @@
 import React from "react";
 
-const Logout = ({ setToken }) => {
+const Logout = ({ setToken , token}) => {
   const handleLogout = async () => {
     await fetch("https://zadkinder.onrender.com/admin/login", {
       method: "GET",
@@ -13,7 +13,10 @@ const Logout = ({ setToken }) => {
   };
 
   return (
-    <button className="m-5 btn btn-danger text-center" onClick={handleLogout}>Logout</button>
+    <button className="m-5 btn btn-danger text-center" onClick={handleLogout}>
+       {/* <i class="fa-solid fa-right-from-bracket"></i> */}
+       تسجيل الخروج
+    </button>
   );
 };
 
