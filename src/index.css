@@ -649,9 +649,9 @@ footer .suggestions{
   transition: all 0.3s;
 }
 .student-table .more-btn:hover{
-  color: #fff;
+  color: #fff !important;
   font-weight: 600;
-  background-color: #02a990;
+  background-color: #02a990 !important;
 }
 .student-register{
   background-color: #dddddd;
@@ -660,6 +660,21 @@ footer .suggestions{
 .student-register h2{
   color: #6c0e95;
   font-weight: 600;
+}
+.change-pass{
+  background-color: #f7f7f7;
+  border-radius: 10px;
+}
+.green-btn{
+  color: #fff !important;
+  font-weight: 600 !important;
+  background-color: var(--light-green) !important;
+  transition: all 0.3s;
+}
+.green-btn:hover{
+  color: #fff !important;
+  font-weight: 600;
+  background-color: #02a990 !important;
 }
 /* end admin dashboard */
 /* start requirement page */
@@ -1028,18 +1043,19 @@ footer .suggestions{
   color: var(--light-green);
   font-weight: 600;
 }
-.login-admin label{
-  color: var(--text-color);
+.login-admin label,
+  .change-pass label{
+    color: var(--text-color);
   font-weight: 600;
   width: 100%;
   padding: 10px 5px 10px 0px;
 }
-.login-admin input{
+/* .login-admin input{
   width: 100%;
   border: solid 2px #2c2221;
   border-radius: 3px;
   padding: 5px;  
-}
+} */
 .login-admin button{
   background-color: var(--light-green) !important;
   color: #fff;
@@ -1051,6 +1067,16 @@ footer .suggestions{
   color: #fff;
   background-color: #02a990 !important;
   transform: scale(1.1);
+}
+.pass-box{
+  position: relative;
+}
+.seenpass{
+  position: absolute;
+  left: 10px;
+  top: 7px;
+  color: #828181;
+  cursor: pointer;
 }
 /* end login-admin page */
 @media only screen and (max-width: 576px){

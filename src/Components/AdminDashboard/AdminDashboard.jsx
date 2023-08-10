@@ -94,6 +94,35 @@ export default function AdminDashboard({setToken}) {
     localStorage.removeItem("token");
     setToken(null);
   }
+  const [email, setEmail] = useState('');
+  const [oldPassword, setOldPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post('https://zadkinder.onrender.com/admin/change-password', {
+        email,
+        password: oldPassword,
+        newPassword,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+
+      console.log(response.data);
+      window.alert('تم تغيير كلمة المرور بنجاح')
+    } catch (error) {
+      console.error(error);
+      window.alert(error.response.data.msg)
+    }
+  };
+  const [visible1 , setVisible1] =useState(false);
+  const [visible2 , setVisible2] =useState(false);
+
   
   return (
     <>
@@ -244,6 +273,50 @@ export default function AdminDashboard({setToken}) {
         <h2><i class="fa-solid ps-2 fa-user"></i>اضافة طالب جديد :</h2>
         <TheFormRegister/>
         </div> 
+        <div className="p-4 mt-5 change-pass">
+          <h3>تغيير كلمة المرور</h3>
+          <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="email">البريد الإلكتروني:</label>
+        <input className='form-control'
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)} required
+        />
+      </div>
+      <div>
+        <label htmlFor="oldPassword">كلمة المرور الحالية:</label>
+        <div className='pass-box'>
+        <input className='form-control'
+          type={visible1? "text" :"password"}
+          id="oldPassword"
+          value={oldPassword}
+          onChange={(e) => setOldPassword(e.target.value)} required
+        />
+        <span onClick={()=> setVisible1(!visible1)} className="seenpass">
+      {visible1?<i class="fa-regular fa-eye "></i> : <i class="fa-regular fa-eye-slash "></i> }
+      </span>
+        </div>
+      </div>
+      <div>
+        <label htmlFor="newPassword">كلمة المرور الجديدة:</label>
+        <div className='pass-box'>
+        <input className='form-control'
+          type={visible2? "text" :"password"}
+          id="newPassword"
+          value={newPassword}
+          onChange={(e) => setNewPassword(e.target.value)} required
+        />
+        <span onClick={()=> setVisible2(!visible2)} className="seenpass">
+      {visible2?<i class="fa-regular fa-eye "></i> : <i class="fa-regular fa-eye-slash "></i> }
+      </span>
+        </div>
+      </div>
+      <button className='btn green-btn my-3' type="submit">تغيير كلمة المرور</button>
+    </form>
+
+        </div>
          
         {/* <Logout setToken={setToken} /> */}
         <button className="m-5 btn btn-danger text-center" onClick={logout}>
