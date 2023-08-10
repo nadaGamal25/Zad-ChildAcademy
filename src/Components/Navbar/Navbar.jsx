@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import logo1 from '../../assets/1.png'
@@ -8,7 +8,18 @@ import logo4 from '../../assets/4.png'
 import logo5 from '../../assets/5.png'
 import logo6 from '../../assets/6.png'
 import logo7 from '../../assets/7.png'
+import { useLocation } from 'react-router-dom';
+
 export default function Navbar() {
+  const [isAdminRoute, setIsAdminRoute] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsAdminRoute(
+      location.pathname === "/loginAdmin" ||
+      location.pathname === "/adminDashboard"
+    );
+  }, [location]);
   return (
     <>
         <div className="colors"></div>
@@ -20,10 +31,22 @@ export default function Navbar() {
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0" dir='rtl'>
-      <li class="nav-item bg-light-green">
+      {/* <li class="nav-item bg-light-green">
         <img className='sm' src={logo1} alt="logo" />
           <Link class="nav-link" to="about">من نحن</Link>
-        </li>
+        </li> */}
+        {/* { isAdminRoute === false?(
+            <li class="nav-item bg-light-green">
+              <img className='sm' src={logo1} alt="logo" />
+              <Link class="nav-link" to="about">من نحن</Link>
+            </li>
+          ) :null} */}
+           {!isAdminRoute && (
+            <li class="nav-item bg-light-green">
+              <img className='sm' src={logo1} alt="logo" />
+              <Link class="nav-link" to="about">من نحن</Link>
+            </li>
+          )}
       <li class="nav-item dropdown bg-bink">
       <img className='sm' src={logo2} alt="logo" />
           <a class="nav-link border-bink" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
