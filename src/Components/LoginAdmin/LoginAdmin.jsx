@@ -31,7 +31,7 @@ export default function LoginAdmin() {
   return (
     <>
       <div className="container loginadmin">
-        <div className="w-75 m-auto login-admin p-5 mt-5">
+        <div className="w-75 m-auto login-admin p-5">
           <h2>تسجيل الدخول</h2>
           <form action="" onSubmit={handleLogin}>
             <div>

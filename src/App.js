@@ -17,6 +17,11 @@ import Logout from './Components/LoginAdmin/Logout ';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import LoadingPage from './Components/LoadingPage';
+import StudentProfile from './Components/StudentProfile/StudentProfile';
+import StudentListAdmin from './Components/StudentListAdmin/StudentListAdmin';
+import AddStudentAdmin from './Components/AddStudentAdmin/AddStudentAdmin';
+import ChangePassAdmin from './Components/ChangePassAdmin/ChangePassAdmin';
+import LayoutAdmin from './Components/LayoutAdmin/LayoutAdmin';
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [loading, setLoading] = useState(true); // set initial value to true
@@ -41,22 +46,23 @@ function App() {
       {path:'zad',element:<ErrorBoundary><Zad/></ErrorBoundary>},
       {path:'qtouf',element:<ErrorBoundary><Qtouf/></ErrorBoundary>},
       {path:'loginStudent',element:<ErrorBoundary><LoginStudent/></ErrorBoundary>},
-      {path:'adminDashboard',element:<ErrorBoundary><AdminDashboard setToken={setToken} /></ErrorBoundary>},
-      {path:'loginAdmin',element:<ErrorBoundary><LoginAdmin setToken={setToken} /></ErrorBoundary>},
+      {path:'studentProfile',element:<ErrorBoundary><StudentProfile/></ErrorBoundary>},
+      // {path:'adminDashboard',element:<ErrorBoundary><AdminDashboard setToken={setToken} /></ErrorBoundary>},
       {path:'logout',element:<ErrorBoundary><Logout setToken={setToken} token={token} /></ErrorBoundary>},
-      // {
-      //   path: "loginAdmin",
-      //   element: !token ? (
-      //     <ErrorBoundary><LoginAdmin setToken={setToken} /></ErrorBoundary>
-      //   ) : (
-      //     <ErrorBoundary>
-      //       <AdminDashboard />
-      //       <Logout setToken={setToken} />
-      //     </ErrorBoundary>
-      //   ),
-      // },
+      
       {path:'*', element:<PageNotFound/>}
-    ]}
+    ]},
+    {path:'loginAdmin',element:<ErrorBoundary><LoginAdmin setToken={setToken} /></ErrorBoundary>},
+    {path:'/',element:<LayoutAdmin/> ,children:[
+      // {index:true,element:<ErrorBoundary><MainPage/></ErrorBoundary> },
+      {path:'studentListAdmin',element:<ErrorBoundary><StudentListAdmin/></ErrorBoundary>},
+      {path:'AddStudentAdmin',element:<ErrorBoundary><AddStudentAdmin/></ErrorBoundary>},
+      {path:'ChangePassAdmin',element:<ErrorBoundary><ChangePassAdmin/></ErrorBoundary>},
+      {path:'adminDashboard',element:<ErrorBoundary><AdminDashboard setToken={setToken} /></ErrorBoundary>},
+      
+      {path:'*', element:<PageNotFound/>}
+    ]},
+
   ])
   return (
     <>
@@ -72,3 +78,15 @@ function App() {
 }
 
 export default App;
+
+// {
+      //   path: "loginAdmin",
+      //   element: !token ? (
+      //     <ErrorBoundary><LoginAdmin setToken={setToken} /></ErrorBoundary>
+      //   ) : (
+      //     <ErrorBoundary>
+      //       <AdminDashboard />
+      //       <Logout setToken={setToken} />
+      //     </ErrorBoundary>
+      //   ),
+      // },
