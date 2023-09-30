@@ -112,7 +112,7 @@ export default function Features() {
                             <h2>النقل</h2>
                             <p>حرصا منا على راحتكم ..نؤمن لكم حافلات مريحةوآمنة لنقل أطفالكم من وإلى الروضة.</p>
                         </div>
-                    </div>
+                    </div>  
                 </div>
                 <div className="col-md-6 section">
                     <div className="feature d-flex bg-bink">

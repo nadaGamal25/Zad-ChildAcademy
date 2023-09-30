@@ -41,7 +41,6 @@ export default function ChangePassAdmin() {
   
     async function getStudentData(){
       try {
-        // const token = localStorage.getItem('token');
         const response = await axios.get(`https://zadkinder.onrender.com/admin/students`, {
           params: { page: currentPage, limit: 20 },
           headers: {

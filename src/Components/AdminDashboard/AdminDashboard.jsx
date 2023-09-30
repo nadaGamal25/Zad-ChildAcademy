@@ -18,10 +18,7 @@ export default function AdminDashboard({setToken}) {
   //   setVisible((prevValue) => prevValue + 10);
   // }
   useEffect(() => {
-    // Count the number of objects with kinder equal to 'زاد الطفل'
     const zadCount = studentData.filter((obj) => obj.kinder === 'زاد الطفل').length;
-
-    // Count the number of objects with kinder equal to 'قطوف الطفل'
     const qtoufCount = studentData.filter((obj) => obj.kinder === 'قطوف الطفل').length;
 
     
@@ -40,7 +37,6 @@ export default function AdminDashboard({setToken}) {
         }
       );
         console.log(response.data.msg);
-      // Update the studentData state by removing the deleted student
       setStudentData(studentData.filter((student) => student._id !== id));
         // If the student was successfully removed, update the student data
         // getStudentData(10);
@@ -63,7 +59,6 @@ export default function AdminDashboard({setToken}) {
   }
   async function getStudentData(){
     try {
-      // const token = localStorage.getItem('token');
       const response = await axios.get(`https://zadkinder.onrender.com/admin/students`,
        {
         headers: {

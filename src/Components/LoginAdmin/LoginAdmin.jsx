@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 export default function LoginAdmin() {
-  const [email, setEmail] = useState(''); // Change username to email
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [visible , setVisible] =useState(false);
 
@@ -15,7 +15,7 @@ export default function LoginAdmin() {
     try {
       const response = await axios.post(
         'https://zadkinder.onrender.com/admin/login',
-        { email, password } // Use email instead of password
+        { email, password } 
       );
 
       const { token } = response.data;

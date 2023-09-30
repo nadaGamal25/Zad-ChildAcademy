@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
 
-Modal.setAppElement('#root'); // Set the root element for accessibility
+Modal.setAppElement('#root'); 
 
 const PasswordModal = ({ isOpen, onRequestClose, studentId }) => {
   const [password, setPassword] = useState('');
@@ -23,7 +23,6 @@ const PasswordModal = ({ isOpen, onRequestClose, studentId }) => {
           },
       });
 
-      // Close the modal and perform any other necessary actions
       window.alert('تم حفظ كلمة المرور بنجاح')
       onRequestClose();
       setPassword('');
